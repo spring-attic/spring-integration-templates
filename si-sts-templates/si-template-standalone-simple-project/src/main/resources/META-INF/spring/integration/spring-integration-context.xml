@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:int="http://www.springframework.org/schema/integration"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/integration
+                        http://www.springframework.org/schema/integration/spring-integration-2.1.xsd">
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#gateway-proxy
+        http://www.eaipatterns.com/MessagingGateway.html -->
+    <int:gateway id="gateway"
+                 default-request-timeout="5000"
+                 default-reply-timeout="5000"
+                 default-request-channel="requestChannel"
+                 default-reply-channel="replyChannel"
+                 service-interface="stsorg.stsspringframework.stsintegration.service.StringConversionService">
+        <int:method name="convertToUpperCase"/>
+    </int:gateway>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#service-activator
+        http://www.eaipatterns.com/MessagingAdapter.html -->
+    <int:service-activator id="serviceActivator"
+                           input-channel="requestChannel" output-channel="replyChannel"
+                           expression="payload.toUpperCase()"/>
+
+    <int:channel id="replyChannel"/>
+    <int:channel id="requestChannel"/>
+
+
+
+
+
+</beans>

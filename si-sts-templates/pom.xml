@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.springframework.integration.sts.templates</groupId>
+    <artifactId>si-template-parent</artifactId>
+    <version>1.0.0.M2</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>si-template-standalone-simple-project</module>
+        <module>si-template-standalone-simple</module>
+        <module>si-template-standalone-project</module>
+        <module>si-template-standalone</module>
+        <module>si-template-war-project</module>
+        <module>si-template-war</module>
+        <module>si-template-plugin</module>
+    </modules>
+
+    <name>${project.artifactId}</name>
+
+    <description>This is the parent project for the Spring Integration STS Templates project.</description>
+
+    <inceptionYear>2011</inceptionYear>
+    <developers>
+        <developer>
+            <id>ghillert</id>
+            <name>Gunnar Hillert</name>
+            <email>ghillert at vmware dot com</email>
+            <url>http://blog.hillert.com</url>
+            <roles>
+                <role>Admin</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
+
+    <properties>
+        <base.location>file://${project.parent.basedir}/target/out</base.location>
+        <template.version>${project.version}</template.version>
+    </properties>
+
+</project>

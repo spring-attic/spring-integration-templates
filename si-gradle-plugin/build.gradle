@@ -1,0 +1,21 @@
+apply plugin: 'idea'
+apply plugin: 'groovy'
+
+dependencies {
+    compile gradleApi()
+    groovy localGroovy()
+}
+
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.8.2'
+}
+
+group   = 'org.springframework.integration.gradle'
+version = '1.0.0.M1.BUILD-SNAPSHOT'
+

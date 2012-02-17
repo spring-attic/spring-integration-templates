@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<descriptors>
+    <descriptor id="org.springframework.integration.sts.template.standalone.simple"
+        name="Spring Integration Project (Standalone) - Simple" kind="template"
+        version="1.0.0.M2" local="false" size="8390"
+        url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-standalone-simple-1.0.0.M2.zip">
+        <description>Creates a Spring Integration project that runs as a standalone Java application using core components only.</description>
+    </descriptor>
+    <descriptor id="org.springframework.integration.sts.template.standalone"
+        name="Spring Integration Project (Standalone) - File" kind="template"
+        version="1.0.0.M2" local="false" size="10258"
+        url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-standalone-1.0.0.M2.zip">
+        <description>Creates a Spring Integration project that runs as a standalone Java application using file polling and file output.</description>
+    </descriptor>
+    <descriptor id="org.springframework.integration.sts.template.war"
+        name="Spring Integration Project (War)" kind="template" version="1.0.0.M2"
+        local="false" size="56242"
+        url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-war-1.0.0.M2.zip">
+        <description>Creates a Spring Integration project that runs within a servlet container.
+            Uses the Spring Integration Twitter adapter.</description>
+    </descriptor>
+</descriptors>

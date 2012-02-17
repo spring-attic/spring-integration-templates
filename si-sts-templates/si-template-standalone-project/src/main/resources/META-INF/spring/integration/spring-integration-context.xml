@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-file="http://www.springframework.org/schema/integration/file"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/integration
+            http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+            http://www.springframework.org/schema/integration/file
+            http://www.springframework.org/schema/integration/file/spring-integration-file-2.1.xsd">
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#channel-adapter
+        http://www.eaipatterns.com/ChannelAdapter.html -->
+    <int-file:inbound-channel-adapter id="filesIn" directory="file:input" >
+        <int:poller id="poller" fixed-rate="5000"/>
+    </int-file:inbound-channel-adapter>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#transformer
+        http://www.eaipatterns.com/MessageTranslator.html -->
+    <int:transformer id="copyFiles"
+                     input-channel="filesIn"
+                     output-channel="routingChannel"
+                     ref="transformationHandler"
+                     method="handleFile"/>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#channel
+        http://www.eaipatterns.com/MessageChannel.html -->
+    <int:channel id="routingChannel">
+        <int:interceptors>
+             <int:wire-tap channel="loggingChannel" />
+         </int:interceptors>
+    </int:channel>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#router
+        http://www.eaipatterns.com/MessageRouter.html -->
+    <int:header-value-router id="fileTypeRouter"
+                        header-name="file_extension"
+                        input-channel="routingChannel"
+                        default-output-channel="otherFilesOut">
+        <int:mapping value="csv" channel="csvFilesOut"/>
+        <int:mapping value="xml" channel="xmlFilesOut"/>
+    </int:header-value-router>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#channel-adapter
+        http://www.eaipatterns.com/ChannelAdapter.html -->
+    <int-file:outbound-channel-adapter id="otherFilesOut"
+                                   directory="file:target/output/other"
+                                   delete-source-files="true"/>
+
+    <int-file:outbound-channel-adapter id="xmlFilesOut"
+                                   directory="file:target/output/xml"
+                                   delete-source-files="true"/>
+
+    <int-file:outbound-channel-adapter id="csvFilesOut"
+                                   directory="file:target/output/csv"
+                                   delete-source-files="true" />
+
+    <int:logging-channel-adapter id="loggingChannel"
+                                 expression="'Processing file: ' + headers.file_name + ' (' + headers.file_size + ' bytes) '"/>
+
+    <bean id="transformationHandler"  class="stsorg.stsspringframework.stsintegration.TransformationHandler"/>
+
+</beans>
