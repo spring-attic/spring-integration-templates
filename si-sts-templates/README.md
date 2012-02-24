@@ -34,15 +34,14 @@ so it has this form:
 
 Make sure there are no conflicting templates with the same name and a different version.
 
-## ¡IMPORTANTE!
+## Important
 
-A few file in the template project require absolute URLs. By default the pom is setup to use:
+A few files in the template project require absolute URLs. By default the pom is setup to use:
 
-	<base.location>file://${project.parent.basedir}/target/out</base.location>
+    <base.location>file://${project.parent.basedir}/target/out</base.location>
 
 Therefore, if you prefer a custom base location (e.g.: http://www.mysite.com/si-templates/), then you must set the
 base.location property such as:
 
-	$ mvn package -Dbase.location=http://www.mysite.com/si-templates
-	
-	
+    $ mvn package -Dbase.location=http://www.mysite.com/si-templates
+

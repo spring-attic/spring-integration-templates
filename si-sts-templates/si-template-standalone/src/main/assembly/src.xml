@@ -18,6 +18,10 @@
         <exclude>**/.DS_Store</exclude>
         <exclude>**/.settings/**</exclude>
         <exclude>**/.pmd</exclude>
+        <exclude>**/.idea/**</exclude>
+        <exclude>**/.gradle/**</exclude>
+        <exclude>**/build/**</exclude>
+        <exclude>**/*.iml</exclude>
         <exclude>**/${project.build.directory}/**</exclude>
       </excludes>
     </fileSet>
