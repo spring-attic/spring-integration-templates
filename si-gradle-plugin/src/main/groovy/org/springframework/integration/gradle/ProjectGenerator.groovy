@@ -140,7 +140,6 @@ class ProjectGenerator {
 							include '**/*'
 							filter { String line ->
 								line.replace("mavenGroupId", pi.projectGroup)
-								.replace("si-template-standalone-simple-artifactId", pi.artifactId)
 								.replace("mavenVersion", pi.projectVersion)
 								.replace("si-template-project-standalone-simple", pi.projectName)
 								.replace("org.springframework.integration.sts:",  pi.basePackageName)

@@ -8,6 +8,9 @@ repositories {
     maven { url 'http://repo.springsource.org/libs-milestone' }
 }
 
+group   = "mavenGroupId"
+version = "mavenVersion"
+
 sourceCompatibility=1.6
 targetCompatibility=1.6
 

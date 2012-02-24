@@ -26,7 +26,6 @@ class ProjectInformation {
     String projectName
     String basePackageName
     String projectGroup;
-    String artifactId;
     String projectVersion;
 
     public ProjectInformation collect() {
@@ -38,7 +37,6 @@ class ProjectInformation {
 
         if (projectName) {
             projectGroup   = SpringIntegrationPluginUtils.prompt('Group:',      basePackageName.toLowerCase())
-            artifactId     = SpringIntegrationPluginUtils.prompt('ArtifactId:', projectName.toLowerCase())
             projectVersion = SpringIntegrationPluginUtils.prompt('Version:',    '1.0.BUILD-SNAPSHOT')
         } else {
             println 'No project name provided.'
