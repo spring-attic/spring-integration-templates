@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-twitter="http://www.springframework.org/schema/integration/twitter"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/integration
+                        http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+                        http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/integration/twitter
+                        http://www.springframework.org/schema/integration/twitter/spring-integration-twitter-2.1.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:component-scan base-package="stsorg.stsspringframework.stsintegration.service" />
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#twitter -->
+    <int-twitter:search-inbound-channel-adapter id="twitter" query="#springsource"
+                                                channel="twitterChannel" auto-startup="true">
+        <int:poller fixed-rate="5000" max-messages-per-poll="10" />
+    </int-twitter:search-inbound-channel-adapter>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#service-activator
+        http://www.eaipatterns.com/MessagingAdapter.html -->
+    <int:service-activator id="twitterServiceActivator" input-channel="twitterChannel" output-channel="nullChannel"
+                           ref="twitterService" method="addTwitterMessages" />
+
+    <bean id="twitterService" class="stsorg.stsspringframework.stsintegration.service.impl.DefaultTwitterService"/>
+
+    <int:logging-channel-adapter id="logger" level="INFO"
+                                 expression="'Id:' + payload.id + '; Date:' + payload.createdAt + '; FromUser: ' + payload.fromUser" />
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#channel
+        http://www.eaipatterns.com/MessageChannel.html -->
+    <int:channel id="twitterChannel">
+        <int:interceptors>
+             <int:wire-tap channel="logger" />
+         </int:interceptors>
+    </int:channel>
+
+    <int:channel id="controlBusChannel"/>
+
+    <!-- See also:
+        http://static.springsource.org/spring-integration/reference/htmlsingle/#control-bus
+        http://www.eaipatterns.com/ControlBus.html -->
+    <int:control-bus id="controlBus" input-channel="controlBusChannel"/>
+
+</beans>

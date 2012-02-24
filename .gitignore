@@ -11,3 +11,4 @@ si-gradle-plugin.iws
 target/
 template.zip
 .pmd
+bin

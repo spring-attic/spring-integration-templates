@@ -1,3 +1,6 @@
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
+
 apply plugin: 'idea'
 apply plugin: 'groovy'
 
@@ -19,3 +22,37 @@ dependencies {
 group   = 'org.springframework.integration.gradle'
 version = '1.0.0.M1.BUILD-SNAPSHOT'
 
+task zipTemplates(type: UpdateTemplateProjectsTask)
+
+class UpdateTemplateProjectsTask extends DefaultTask {
+	@TaskAction
+	def createBundle() {
+		
+		def ant = new groovy.util.AntBuilder()
+		
+		final String exclude     = "target/**, build/**, .settings/**, .gradle/**, pom.xml, .project, .classpath, *.iml, .idea/**"
+		final String templateBaseDir = "../si-template-projects";
+		final String templateDestDir = "src/main/resources/templates";
+		
+		println 'Bundling Temaplate Projects'
+		
+		println "Zipping up 'si-template-war-project'"
+		
+		ant.jar(basedir:  templateBaseDir + '/si-template-war-project',
+			    destfile: templateDestDir + '/si-template-war-project.jar',
+			    excludes: exclude)
+		
+		println "Zipping up 'si-template-standalone-simple'"
+
+		ant.jar(basedir:  templateBaseDir + '/si-template-standalone-simple-project',
+			    destfile: templateDestDir + '/si-template-standalone-simple-project.jar',
+			    excludes: exclude)
+				
+		println "Zipping up 'si-template-standalone'"
+
+		ant.jar(basedir:  templateBaseDir + '/si-template-standalone-project',
+			    destfile: templateDestDir + '/si-template-standalone-project.jar',
+			    excludes: exclude)
+		
+	}
+}

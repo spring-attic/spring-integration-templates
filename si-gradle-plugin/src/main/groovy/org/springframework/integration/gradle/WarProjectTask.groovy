@@ -15,10 +15,7 @@
 */
 package org.springframework.integration.gradle
 
-import groovy.lang.Closure;
-
 import org.gradle.api.DefaultTask
-import org.gradle.api.Task;
 import org.gradle.api.tasks.TaskAction
 import org.springframework.integration.gradle.support.TemplateType;
 
@@ -28,17 +25,17 @@ import org.springframework.integration.gradle.support.TemplateType;
  *  @since 1.0
  *
  */
-class SimpleProjectTask extends DefaultTask {
-	
-    /**
-     * Template Task
-     */
-    @TaskAction
-    def createIntegrationProject() {
+class WarProjectTask extends DefaultTask {
 
-        ProjectGenerator pg = new ProjectGenerator();
-		pg.createIntegrationProject(project, TemplateType.STANDALONE_SIMPLE);
+	/**
+	* Template Task
+	*/
+   @TaskAction
+   def createIntegrationProject() {
 
-    }
+	   ProjectGenerator pg = new ProjectGenerator();
+	   pg.createIntegrationProject(project, TemplateType.WAR);
+
+   }
 
 }

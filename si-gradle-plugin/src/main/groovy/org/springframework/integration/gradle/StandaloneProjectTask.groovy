@@ -28,7 +28,7 @@ import org.springframework.integration.gradle.support.TemplateType;
  *  @since 1.0
  *
  */
-class SimpleProjectTask extends DefaultTask {
+class StandaloneProjectTask extends DefaultTask {
 	
     /**
      * Template Task
@@ -37,7 +37,7 @@ class SimpleProjectTask extends DefaultTask {
     def createIntegrationProject() {
 
         ProjectGenerator pg = new ProjectGenerator();
-		pg.createIntegrationProject(project, TemplateType.STANDALONE_SIMPLE);
+		pg.createIntegrationProject(project, TemplateType.STANDALONE);
 
     }
 

@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.springsource.org/libs-milestone' }
+}
+
+sourceCompatibility=1.6
+targetCompatibility=1.6
+
+junitVersion = '4.10'
+slf4jVersion = '1.6.4'
+springIntegrationVersion = '2.1.0.RELEASE'
+
+eclipse {
+    project {
+        natures += 'org.springframework.ide.eclipse.core.springnature'
+    }
+}
+
+mainClassName = "stsorg.stsspringframework.stsintegration.Main"
+
+run{
+    
+    standardInput = System.in
+}
+
+dependencies {
+    compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+    compile "org.springframework.integration:spring-integration-file:$springIntegrationVersion"
+    
+    compile "ch.qos.logback:logback-classic:1.0.0"
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
+    compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+
+    compile "commons-io:commons-io:2.1"
+
+    testCompile "junit:junit-dep:$junitVersion"
+}

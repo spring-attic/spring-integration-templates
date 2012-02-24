@@ -8,11 +8,15 @@
   </formats>
   <fileSets>
     <fileSet>
-      <directory>${project.basedir}/../si-template-standalone-project</directory>
+      <directory>${project.basedir}/../../si-template-projects/si-template-standalone-project</directory>
       <outputDirectory>template</outputDirectory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>**/*.log</exclude>
+        <exclude>**/.project</exclude>
+        <exclude>**/.classpath</exclude>
+        <exclude>**/.DS_Store</exclude>
+        <exclude>**/.settings/**</exclude>
         <exclude>**/.pmd</exclude>
         <exclude>**/${project.build.directory}/**</exclude>
       </excludes>

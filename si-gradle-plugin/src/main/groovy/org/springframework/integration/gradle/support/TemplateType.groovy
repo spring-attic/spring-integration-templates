@@ -13,32 +13,24 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.springframework.integration.gradle
-
-import groovy.lang.Closure;
-
-import org.gradle.api.DefaultTask
-import org.gradle.api.Task;
-import org.gradle.api.tasks.TaskAction
-import org.springframework.integration.gradle.support.TemplateType;
+package org.springframework.integration.gradle.support;
 
 /**
- *
- *  @author Gunnar Hillert
- *  @since 1.0
- *
- */
-class SimpleProjectTask extends DefaultTask {
+*
+*  @author Gunnar Hillert
+*  @since 1.0
+*
+*/
+public enum TemplateType {
 	
-    /**
-     * Template Task
-     */
-    @TaskAction
-    def createIntegrationProject() {
-
-        ProjectGenerator pg = new ProjectGenerator();
-		pg.createIntegrationProject(project, TemplateType.STANDALONE_SIMPLE);
-
-    }
-
+	STANDALONE_SIMPLE("si-template-standalone-simple-project"), 
+	STANDALONE("si-template-standalone-project"), 
+	WAR("si-template-war-project")
+	
+    TemplateType(String name) { this.templateName = name }
+	
+    private final String templateName;
+    
+    public int value() { return templateName }
+    
 }

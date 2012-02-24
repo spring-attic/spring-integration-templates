@@ -7,11 +7,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>si-template-standalone-simple-project</module>
         <module>si-template-standalone-simple</module>
-        <module>si-template-standalone-project</module>
         <module>si-template-standalone</module>
-        <module>si-template-war-project</module>
         <module>si-template-war</module>
         <module>si-template-plugin</module>
     </modules>
