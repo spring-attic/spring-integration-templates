@@ -15,7 +15,7 @@ The Spring Integration Gradle Plugin provides templates to jumpstart Spring Inte
 2. Add the following lines
 
     gradle.beforeProject { prj ->
-        prj.apply from: 'https://raw.github.com/ghillert/spring-integration-gradle-plugin/master/distribution/spring-integration-apply.groovy'
+        prj.apply from: 'https://raw.github.com/SpringSource/spring-integration-templates/master/si-gradle-plugin/distribution/spring-integration-apply.groovy'
     }
 
 This should make the plugin available globally in your system. You should get a list of task when you execute:

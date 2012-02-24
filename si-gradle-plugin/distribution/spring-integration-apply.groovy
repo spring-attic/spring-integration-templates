@@ -1,8 +1,7 @@
 buildscript {
     repositories {
-
-        mavenRepo url: "https://raw.github.com/ghillert/spring-integration-gradle-plugin/master/distribution"
-       // mavenLocal()
+        mavenRepo url: "https://raw.github.com/SpringSource/spring-integration-templates/master/si-gradle-plugin/distribution/"
+        mavenLocal()
     }
 
     dependencies {
