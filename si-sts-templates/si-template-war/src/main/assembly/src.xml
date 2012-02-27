@@ -14,7 +14,6 @@
       <excludes>
         <exclude>**/*.log</exclude>
         <exclude>**/.DS_Store</exclude>
-        <exclude>**/.settings/**</exclude>
         <exclude>**/.pmd</exclude>
         <exclude>**/.idea/**</exclude>
         <exclude>**/.gradle/**</exclude>
