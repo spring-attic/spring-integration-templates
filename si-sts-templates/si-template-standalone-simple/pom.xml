@@ -4,13 +4,13 @@
 
     <groupId>org.springframework.integration.sts.templates</groupId>
     <artifactId>si-template-standalone-simple</artifactId>
-    <version>1.0.0.M2</version>
+    <version>1.0.0.M3</version>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.integration.sts.templates</groupId>
         <artifactId>si-template-parent</artifactId>
-        <version>1.0.0.M2</version>
+        <version>1.0.0.M3</version>
     </parent>
 
     <properties>
