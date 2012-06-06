@@ -14,7 +14,7 @@
         http://static.springsource.org/spring-integration/reference/htmlsingle/#channel-adapter
         http://www.eaipatterns.com/ChannelAdapter.html -->
     <int-file:inbound-channel-adapter id="filesIn" directory="file:input" >
-        <int:poller id="poller" fixed-rate="5000"/>
+        <int:poller id="poller" fixed-rate="5000" max-messages-per-poll="10"/>
     </int-file:inbound-channel-adapter>
 
     <!-- See also:
@@ -41,6 +41,7 @@
     <int:header-value-router id="fileTypeRouter"
                         header-name="file_extension"
                         input-channel="routingChannel"
+                        resolution-required="false"
                         default-output-channel="otherFilesOut">
         <int:mapping value="csv" channel="csvFilesOut"/>
         <int:mapping value="xml" channel="xmlFilesOut"/>
