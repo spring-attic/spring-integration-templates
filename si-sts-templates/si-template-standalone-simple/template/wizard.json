@@ -39,7 +39,7 @@
 
         "topLevelPackage" : "stsorg.stsspringframework.stsintegration.mysubsystem",
 
-        "projectName" : "si-template-project-standalone-simple",
+        "projectName" : "si-template-project-name",
 
         "pages" : {
             "page" : [

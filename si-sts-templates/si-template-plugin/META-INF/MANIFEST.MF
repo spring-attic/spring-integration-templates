@@ -2,4 +2,4 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spring Integration STS Plugin
 Bundle-SymbolicName: org.springframework.integration.sts.templates;singleton:=true
-Bundle-Version: 1.0.0.M2
+Bundle-Version: 1.0.0.M3
