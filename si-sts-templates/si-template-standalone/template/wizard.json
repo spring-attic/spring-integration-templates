@@ -10,7 +10,7 @@
                     "required" : true,
                 },
                 {
-                    "name" : "mavenArtifactId",
+                    "name" : "si-template-standalone-artifactId",
                     "description" : "Please enter an 'artifactId'",
                     "type" : "java.lang.String",
                     "page" : 0,
@@ -39,7 +39,7 @@
 
         "topLevelPackage" : "stsorg.stsspringframework.stsintegration.mysubsystem",
 
-        "projectName" : "si-template-project-java",
+        "projectName" : "si-template-project-name",
 
         "pages" : {
             "page" : [

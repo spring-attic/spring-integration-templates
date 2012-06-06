@@ -7,7 +7,7 @@
     <version>mavenVersion</version>
     <packaging>jar</packaging>
 
-    <name>si-template-project-standalone-simple</name>
+    <name>si-template-project-name</name>
     <url>http://www.springsource.org/spring-integration</url>
 
     <prerequisites>
