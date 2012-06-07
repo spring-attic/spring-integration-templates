@@ -10,6 +10,7 @@
         <module>si-template-standalone-simple</module>
         <module>si-template-standalone</module>
         <module>si-template-war</module>
+        <module>si-template-adapter</module>
         <module>si-template-plugin</module>
     </modules>
 

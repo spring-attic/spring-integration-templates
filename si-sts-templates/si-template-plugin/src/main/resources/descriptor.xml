@@ -19,4 +19,10 @@
         <description>Creates a Spring Integration project that runs within a servlet container.
             Uses the Spring Integration Twitter adapter.</description>
     </descriptor>
+    <descriptor id="org.springframework.integration.sts.template.adapter"
+        name="Spring Integration Adapter Template Project" kind="template" version="${template.version}"
+        local="false" size="56242" category="Integration"
+        url="${base.location}/si-template-adapter-${template.version}.zip">
+        <description>Creates a Spring Integration Adapter Template.</description>
+    </descriptor>
 </descriptors>

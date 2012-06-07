@@ -1,0 +1,75 @@
+{
+	"info" : {
+		"elements" : {
+			"element" :	[
+				{
+					"name" : "SIAdapterUpperPrefix",
+					"description" : "Please enter the adapter name prefix (camel case)",
+					"defaultValue": "MyAdapter",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+				},
+				{
+					"name" : "siAdapterLowerPrefix",
+					"description" : "Please enter the id prefix (lower case)",
+					"defaultValue": "myadapter",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+				},
+				{
+					"name" : "SI-TEMPLATE-GROUP-ID",
+ 					"description" : "Please enter a 'groupId, e.g. org.springintegration.adapter'",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+				},
+				{
+					"name" : "SI-TEMPLATE-BUILD-VERSION",
+					"description" : "Please enter a build version e.g. '1.0.0.BUILD-SNAPSHOT'",
+					"defaultValue": "1.0.0.BUILD-SNAPSHOT",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+				},
+				{
+					"name" : "SI-TEMPLATE-VERSION",
+					"description" : "Please enter a short version e.g. '1.0' (For JavaDoc, and XSD Schema Naming)",
+					"defaultValue": "1.0",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+				},
+				{
+					"name" : "SI-TEMPLATE-AUTHOR",
+					"description" : "Please enter the author name",
+					"defaultValue": "Your name",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+				},
+				{
+					"name" : "topLevelPackage",
+					"description" : "Please specify the top-level package e.g. com.mycompany.myapp",
+					"type" : "java.lang.String",
+					"page" : 0,
+					"required" : true,
+					"pattern" : "\\w+\\.\\w+(\\.\\w+)+",
+					"replaceKind" : "topLevelPackage"
+				}
+			]
+		},
+
+		"topLevelPackage" : "stsorg.stsspringframework.stsintegration.mysubsystem",
+		"projectName" : "si-template-project-name",
+		"pages" : {
+			"page" : [
+				{
+					"order" : 0,
+					"description" : "Project Settings"
+				}
+			]
+		}
+	}
+}
