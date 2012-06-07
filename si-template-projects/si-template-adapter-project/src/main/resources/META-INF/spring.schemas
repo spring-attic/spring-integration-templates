@@ -1,2 +1,0 @@
-http\://www.springframework.org/schema/integration/siAdapterLowerPrefix/spring-integration-siAdapterLowerPrefix-2.2.xsd=org/springframework/integration/siAdapterLowerPrefix/config/xml/spring-integration-siAdapterLowerPrefix-2.2.xsd
-http\://www.springframework.org/schema/integration/siAdapterLowerPrefix/spring-integration-siAdapterLowerPrefix.xsd=org/springframework/integration/siAdapterLowerPrefix/config/xml/spring-integration-siAdapterLowerPrefix-2.2.xsd
