@@ -1,0 +1,15 @@
+<template>
+	<descriptor
+		id="org.springframework.integration.sts.template.standalone"
+		name="Spring Integration Project (Standalone) - File"
+		kind="template"
+		category="${template.category}"
+		version="${template.version}">
+		<description>
+			Creates a Spring Integration project that runs as a standalone Java
+			application.
+		</description>
+	</descriptor>
+	<project path="" />
+	<json path="wizard.json" />
+</template>
