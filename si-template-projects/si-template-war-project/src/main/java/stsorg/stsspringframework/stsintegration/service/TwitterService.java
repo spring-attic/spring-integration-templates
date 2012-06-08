@@ -24,24 +24,24 @@ import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
  */
 public interface TwitterService {
 
-    /**
-     * Retrieve the already polled Twitter messages. Keep in mind this
-     * method does not perform the actual Twitter search. It merely returns all
-     * the Tweets that were previously polled through Spring Integration and
-     * which have been cached for returning those to the web-frontend. */
-    Collection<TwitterMessage> getTwitterMessages();
+	/**
+	 * Retrieve the already polled Twitter messages. Keep in mind this
+	 * method does not perform the actual Twitter search. It merely returns all
+	 * the Tweets that were previously polled through Spring Integration and
+	 * which have been cached for returning those to the web-frontend. */
+	Collection<TwitterMessage> getTwitterMessages();
 
-    /**
-     * By default - After application startup, the Spring Integration Twitter
-     * search-inbound-channel-adapter is stopped. Use this method to start
-     * the adapter.
-     */
-    void startTwitterAdapter();
+	/**
+	 * By default - After application startup, the Spring Integration Twitter
+	 * search-inbound-channel-adapter is stopped. Use this method to start
+	 * the adapter.
+	 */
+	void startTwitterAdapter();
 
-    /**
-     * Allows for stopping the Spring Integration Twitter
-     * search-inbound-channel-adapter.
-     */
-    void stopTwitterAdapter();
+	/**
+	 * Allows for stopping the Spring Integration Twitter
+	 * search-inbound-channel-adapter.
+	 */
+	void stopTwitterAdapter();
 
 }

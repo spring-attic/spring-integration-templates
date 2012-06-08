@@ -17,19 +17,18 @@
 package stsorg.stsspringframework.stsintegration;
 
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  */
 public class SpringIntegrationTest {
 
-    @Test
-    public void testSpringIntegrationContextStartup() throws Exception{
+	@Test
+	public void testSpringIntegrationContextStartup() throws Exception{
 
-        final ApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/spring-integration-context.xml", SpringIntegrationTest.class);
-        Thread.sleep(4000);
+		new ClassPathXmlApplicationContext("/META-INF/spring/integration/spring-integration-context.xml", SpringIntegrationTest.class);
+		Thread.sleep(4000);
 
-    }
+	}
 
 }

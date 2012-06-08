@@ -25,7 +25,7 @@ import org.springframework.integration.Message;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.core.MessagingTemplate;
 import org.springframework.integration.support.MessageBuilder;
-import org.springframework.integration.twitter.core.Tweet;
+import org.springframework.social.twitter.api.Tweet;
 import org.springframework.stereotype.Service;
 
 import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
@@ -37,70 +37,70 @@ import stsorg.stsspringframework.stsintegration.service.TwitterService;
 @Service
 public class DefaultTwitterService implements TwitterService {
 
-    /** Holds a collection of polled Twitter messages */
-    private Map<Long, TwitterMessage> twitterMessages;
+	/** Holds a collection of polled Twitter messages */
+	private volatile Map<Long, TwitterMessage> twitterMessages;
 
-    @Autowired
-    @Qualifier("controlBusChannel")
-    private DirectChannel channel;
+	@Autowired
+	@Qualifier("controlBusChannel")
+	private DirectChannel channel;
 
-    /**
-     * Constructor that initializes the 'twitterMessages' Map as a simple LRU
-     * cache. @See http://blogs.oracle.com/swinger/entry/collections_trick_i_lru_cache
-     */
-    public DefaultTwitterService() {
+	/**
+	 * Constructor that initializes the 'twitterMessages' Map as a simple LRU
+	 * cache. @See http://blogs.oracle.com/swinger/entry/collections_trick_i_lru_cache
+	 */
+	public DefaultTwitterService() {
 
-        twitterMessages = new LinkedHashMap<Long, TwitterMessage>( 10, 0.75f, true ) {
+		twitterMessages = new LinkedHashMap<Long, TwitterMessage>( 10, 0.75f, true ) {
 
-            private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 1L;
 
-            protected boolean removeEldestEntry( java.util.Map.Entry<Long, TwitterMessage> entry ) {
-                return size() > 10;
-            }
+			protected boolean removeEldestEntry( java.util.Map.Entry<Long, TwitterMessage> entry ) {
+				return size() > 10;
+			}
 
-        };
+		};
 
-    }
+	}
 
-    /** {@inheritDoc} */
-    @Override
-    public Collection<TwitterMessage> getTwitterMessages() {
-        return twitterMessages.values();
-    }
+	/** {@inheritDoc} */
+	@Override
+	public Collection<TwitterMessage> getTwitterMessages() {
+		return twitterMessages.values();
+	}
 
-    /** {@inheritDoc} */
-    @Override
-    public void startTwitterAdapter() {
+	/** {@inheritDoc} */
+	@Override
+	public void startTwitterAdapter() {
 
-        final MessagingTemplate m = new MessagingTemplate();
-        final Message<String> operation = MessageBuilder.withPayload("@twitter.start()").build();
+		final MessagingTemplate m = new MessagingTemplate();
+		final Message<String> operation = MessageBuilder.withPayload("@twitter.start()").build();
 
-        m.send(channel, operation);
+		m.send(channel, operation);
 
-    }
+	}
 
-    /** {@inheritDoc} */
-    @Override
-    public void stopTwitterAdapter() {
+	/** {@inheritDoc} */
+	@Override
+	public void stopTwitterAdapter() {
 
-        final MessagingTemplate m = new MessagingTemplate();
-        final Message<String> operation = MessageBuilder.withPayload("@twitter.stop()").build();
+		final MessagingTemplate m = new MessagingTemplate();
+		final Message<String> operation = MessageBuilder.withPayload("@twitter.stop()").build();
 
-        m.send(channel, operation);
+		m.send(channel, operation);
 
-    }
+	}
 
 
-    /**
-     * Called by Spring Integration to populate a simple LRU cache.
-     *
-     * @param tweet - The Spring Integration tweet object.
-     */
-    public void addTwitterMessages(Tweet tweet) {
-        this.twitterMessages.put(tweet.getCreatedAt().getTime(), new TwitterMessage(tweet.getCreatedAt(),
-                tweet.getText(),
-                tweet.getFromUser(),
-                tweet.getProfileImageUrl()));
-    }
+	/**
+	 * Called by Spring Integration to populate a simple LRU cache.
+	 *
+	 * @param tweet - The Spring Integration tweet object.
+	 */
+	public void addTwitterMessages(Tweet tweet) {
+		this.twitterMessages.put(tweet.getCreatedAt().getTime(), new TwitterMessage(tweet.getCreatedAt(),
+			tweet.getText(),
+			tweet.getFromUser(),
+			tweet.getProfileImageUrl()));
+	}
 
 }
