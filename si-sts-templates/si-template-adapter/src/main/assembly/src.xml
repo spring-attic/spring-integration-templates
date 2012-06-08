@@ -8,7 +8,7 @@
   </formats>
   <fileSets>
     <fileSet>
-      <directory>${project.basedir}/../../si-template-projects/si-template-adapter-project</directory>
+      <directory>${project.basedir}/../../si-template-projects/adapter</directory>
       <outputDirectory>template</outputDirectory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>

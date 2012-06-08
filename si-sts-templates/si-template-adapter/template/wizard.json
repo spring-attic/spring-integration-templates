@@ -61,7 +61,7 @@
 			]
 		},
 
-		"topLevelPackage" : "stsorg.stsspringframework.stsintegration.mysubsystem",
+		"topLevelPackage" : "stsorg.stsspring.stsint.subpackage",
 		"projectName" : "si-template-project-name",
 		"pages" : {
 			"page" : [

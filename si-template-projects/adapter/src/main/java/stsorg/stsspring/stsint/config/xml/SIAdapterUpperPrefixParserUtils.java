@@ -15,8 +15,6 @@
  */
 package stsorg.stsspring.stsint.config.xml;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.ParserContext;
@@ -26,16 +24,15 @@ import org.w3c.dom.Element;
 import stsorg.stsspring.stsint.core.SIAdapterUpperPrefixExecutor;
 
 /**
- * Contains various utility methods for parsing SIAdapterUpperPrefix Adapter specific namesspace
- * elements and generation the respective {@link BeanDefinition}s.
+ * Contains various utility methods for parsing SIAdapterUpperPrefix Adapter
+ * specific namesspace elements as well as for the generation of the the
+ * respective {@link BeanDefinition}s.
  *
  * @author SI-TEMPLATE-AUTHOR
  * @since SI-TEMPLATE-VERSION
  *
  */
 public final class SIAdapterUpperPrefixParserUtils {
-
-	private static final Log logger = LogFactory.getLog(SIAdapterUpperPrefixParserUtils.class);
 
 	/** Prevent instantiation. */
 	private SIAdapterUpperPrefixParserUtils() {

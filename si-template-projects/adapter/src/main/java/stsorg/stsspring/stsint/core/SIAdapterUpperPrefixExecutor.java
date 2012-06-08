@@ -19,9 +19,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.integration.Message;
+import org.springframework.integration.support.MessageBuilder;
 import org.springframework.util.Assert;
 
 /**
+ * Bundles common core logic for the SIAdapterUpperPrefix components.
  *
  * @author SI-TEMPLATE-AUTHOR
  * @since SI-TEMPLATE-VERSION
@@ -36,14 +38,10 @@ public class SIAdapterUpperPrefixExecutor implements InitializingBean {
 	/**
 	 * Constructor.
 	 */
-	public SIAdapterUpperPrefixExecutor() {
-
-	}
+	public SIAdapterUpperPrefixExecutor() {}
 
 	/**
-	 *
 	 * Verifies and sets the parameters. E.g. initializes the to be used
-	 *
 	 */
 	public void afterPropertiesSet() {
 		Assert.hasText(this.exampleProperty, "exampleProperty must not be empty.");
@@ -55,51 +53,13 @@ public class SIAdapterUpperPrefixExecutor implements InitializingBean {
 	 */
 	public Object executeOutboundOperation(final Message<?> message) {
 
-		//final Object result;
-
 		if (logger.isWarnEnabled()) {
 			logger.warn("Logic not implemented, yet.");
 		}
 
-
 		return message.getPayload();
 
 	}
-
-	/**
-	 * Execute a retrieving (polling) SIAdapterUpperPrefix operation. The <i>requestMessage</i>
-	 * can be used to provide additional query parameters using
-	 * {@link SIAdapterUpperPrefixExecutor#parameterSourceFactory}. If the
-	 * <i>requestMessage</i> parameter is null then
-	 * {@link SIAdapterUpperPrefixExecutor#parameterSource} is being used for providing query parameters.
-	 *
-	 * @param requestMessage May be null.
-	 * @return The payload object, which may be null.
-	 */
-	public Object poll(final Message<?> requestMessage) {
-
-		final Object payload;
-
-		if (requestMessage == null) {
-			payload = doPoll(null);
-		}
-		else {
-			payload = doPoll(null);
-		}
-
-		return payload;
-	}
-
-//	private ParameterSource determineParameterSource(final Message<?> requestMessage) {
-//		ParameterSource parameterSource;
-//		if (usePayloadAsParameterSource) {
-//			parameterSource = this.parameterSourceFactory.createParameterSource(requestMessage.getPayload());
-//		}
-//		else {
-//			parameterSource = this.parameterSourceFactory.createParameterSource(requestMessage);
-//		}
-//		return parameterSource;
-//	}
 
 	/**
 	 * Execute the SIAdapterUpperPrefix operation. Delegates to
@@ -109,12 +69,19 @@ public class SIAdapterUpperPrefixExecutor implements InitializingBean {
 		return poll(null);
 	}
 
-//	protected List<?> doPoll(ParameterSource siAdapterLowerPrefixQLParameterSource) {
-	protected Object doPoll(Object siAdapterLowerPrefixQLParameterSource) {
+	/**
+	 * Execute a retrieving (polling) SIAdapterUpperPrefix operation.
+	 *
+	 * @param requestMessage May be null.
+	 * @return The payload object, which may be null.
+	 */
+	public Object poll(final Message<?> requestMessage) {
 
-		Object payload = null;
+		if (logger.isWarnEnabled()) {
+			logger.warn("Logic not implemented, yet.");
+		}
 
-		return payload;
+		return MessageBuilder.fromMessage(requestMessage).build();
 	}
 
 	/**

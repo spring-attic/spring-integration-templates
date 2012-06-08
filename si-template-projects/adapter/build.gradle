@@ -105,7 +105,7 @@ ext.xLintArg = '-Xlint:all'
 test {
 	// suppress all console output during testing unless running `gradle -i`
 	logging.captureStandardOutput(LogLevel.INFO)
-	jvmArgs "-javaagent:${configurations.jacoco.asPath}=destfile=${buildDir}/jacoco.exec,includes=org.springframework.integration.*"
+	jvmArgs "-javaagent:${configurations.jacoco.asPath}=destfile=${buildDir}/jacoco.exec,includes=*"
 }
 
 task sourcesJar(type: Jar) {

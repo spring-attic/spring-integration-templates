@@ -26,7 +26,7 @@ public class SIAdapterUpperPrefixHeaders {
 
 	private static final String PREFIX = "siAdapterLowerPrefix_";
 
-	private static final String EXAMPLE = PREFIX + "example_";
+	public static final String EXAMPLE = PREFIX + "example_";
 
 	/** Noninstantiable utility class */
 	private SIAdapterUpperPrefixHeaders() {
