@@ -34,50 +34,50 @@ import stsorg.stsspringframework.stsintegration.service.TwitterService;
 @Controller
 public class HomeController {
 
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @Autowired
-    private TwitterService twitterService;
+	@Autowired
+	private TwitterService twitterService;
 
-    /**
-     * Simply selects the home view to render by returning its name.
-     */
-    @RequestMapping(value="/")
-    public String home(Model model, @RequestParam(required=false) String startTwitter,
-                                    @RequestParam(required=false) String stopTwitter) {
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value="/")
+	public String home(Model model, @RequestParam(required=false) String startTwitter,
+									@RequestParam(required=false) String stopTwitter) {
 
-        if (startTwitter != null) {
-            twitterService.startTwitterAdapter();
-            return "redirect:/";
-        }
+		if (startTwitter != null) {
+			twitterService.startTwitterAdapter();
+			return "redirect:/";
+		}
 
-        if (stopTwitter != null) {
-            twitterService.stopTwitterAdapter();
-            return "redirect:/";
-        }
+		if (stopTwitter != null) {
+			twitterService.stopTwitterAdapter();
+			return "redirect:/";
+		}
 
-        final Collection<TwitterMessage> twitterMessages = twitterService.getTwitterMessages();
+		final Collection<TwitterMessage> twitterMessages = twitterService.getTwitterMessages();
 
-        logger.info("Retrieved {} Twitter messages.", twitterMessages.size());
+		logger.info("Retrieved {} Twitter messages.", twitterMessages.size());
 
-        model.addAttribute("twitterMessages", twitterMessages);
+		model.addAttribute("twitterMessages", twitterMessages);
 
-        return "home";
-    }
+		return "home";
+	}
 
-    /**
-     * Simply selects the home view to render by returning its name.
-     */
-    @RequestMapping(value="/ajax")
-    public String ajaxCall(Model model) {
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value="/ajax")
+	public String ajaxCall(Model model) {
 
-        final Collection<TwitterMessage> twitterMessages = twitterService.getTwitterMessages();
+		final Collection<TwitterMessage> twitterMessages = twitterService.getTwitterMessages();
 
-        logger.info("Retrieved {} Twitter messages.", twitterMessages.size());
-        model.addAttribute("twitterMessages", twitterMessages);
+		logger.info("Retrieved {} Twitter messages.", twitterMessages.size());
+		model.addAttribute("twitterMessages", twitterMessages);
 
-        return "twitterMessages";
+		return "twitterMessages";
 
-    }
+	}
 }
 
