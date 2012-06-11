@@ -20,12 +20,15 @@ package stsorg.stsspringframework.stsintegration.service;
  */
 public interface StringConversionService {
 
-    /**
-     * Converts a String to Upper Case.
-     *
-     * @param stringToConvert The string to convert to upper case
-     * @return The converted upper case string.
-     */
-    String convertToUpperCase(String stringToConvert);
+	/**
+	 * Converts a String to Upper Case.
+	 *
+	 * @author Your Name Here
+	 * @version 1.0
+	 *
+	 * @param stringToConvert The string to convert to upper case
+	 * @return The converted upper case string.
+	 */
+	String convertToUpperCase(String stringToConvert);
 
 }

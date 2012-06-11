@@ -17,8 +17,7 @@ package stsorg.stsspringframework.stsintegration.mvc.controller;
 
 import java.util.Collection;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,11 +29,15 @@ import stsorg.stsspringframework.stsintegration.service.TwitterService;
 
 /**
  * Handles requests for the application home page.
+ *
+ * @author Your Name Here
+ * @version 1.0
+ *
  */
 @Controller
 public class HomeController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger LOGGER = Logger.getLogger(HomeController.class);
 
 	@Autowired
 	private TwitterService twitterService;
@@ -58,7 +61,9 @@ public class HomeController {
 
 		final Collection<TwitterMessage> twitterMessages = twitterService.getTwitterMessages();
 
-		logger.info("Retrieved {} Twitter messages.", twitterMessages.size());
+		if (LOGGER.isInfoEnabled()) {
+			LOGGER.info(String.format("Retrieved %s Twitter messages.", twitterMessages.size()));
+		}
 
 		model.addAttribute("twitterMessages", twitterMessages);
 
@@ -73,7 +78,10 @@ public class HomeController {
 
 		final Collection<TwitterMessage> twitterMessages = twitterService.getTwitterMessages();
 
-		logger.info("Retrieved {} Twitter messages.", twitterMessages.size());
+		if (LOGGER.isInfoEnabled()) {
+			LOGGER.info(String.format("Retrieved %s Twitter messages.", twitterMessages.size()));
+		}
+
 		model.addAttribute("twitterMessages", twitterMessages);
 
 		return "twitterMessages";

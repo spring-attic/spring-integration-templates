@@ -27,13 +27,13 @@ import stsorg.stsspringframework.stsintegration.SpringIntegrationUtils;
  */
 public class SpringIntegrationProjectStartupTest {
 
-    @Test
-    public void testStartupOfSpringInegrationContext() throws Exception{
-        final ApplicationContext context
-            = new ClassPathXmlApplicationContext("/META-INF/spring/integration/spring-integration-context.xml",
-                                                  SpringIntegrationProjectStartupTest.class);
-        SpringIntegrationUtils.displayDirectories(context);
-        Thread.sleep(2000);
-    }
+	@Test
+	public void testStartupOfSpringInegrationContext() throws Exception{
+		final ApplicationContext context
+			= new ClassPathXmlApplicationContext("/META-INF/spring/integration/spring-integration-context.xml",
+												  SpringIntegrationProjectStartupTest.class);
+		SpringIntegrationUtils.displayDirectories(context);
+		Thread.sleep(2000);
+	}
 
 }

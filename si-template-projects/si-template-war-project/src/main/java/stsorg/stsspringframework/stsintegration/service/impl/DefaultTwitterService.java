@@ -33,6 +33,10 @@ import stsorg.stsspringframework.stsintegration.service.TwitterService;
 
 /**
  * Implementation of the TwitterService interface.
+ *
+ * @author Your Name Here
+ * @version 1.0
+ *
  */
 @Service
 public class DefaultTwitterService implements TwitterService {
