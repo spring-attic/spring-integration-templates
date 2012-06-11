@@ -17,8 +17,7 @@ package stsorg.stsspringframework.stsintegration;
 
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,72 +27,78 @@ import stsorg.stsspringframework.stsintegration.service.StringConversionService;
 /**
  * Starts the Spring Context and will initialize the Spring Integration routes.
  *
- * @author Gunnar Hillert
+ * @author Your Name Here
  * @version 1.0
  *
  */
 public final class Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+	private static final Logger LOGGER = Logger.getLogger(Main.class);
 
-    private Main() { }
+	private Main() { }
 
-    /**
-     * Load the Spring Integration Application Context
-     *
-     * @param args - command line arguments
-     */
-    public static void main(final String... args) {
+	/**
+	 * Load the Spring Integration Application Context
+	 *
+	 * @param args - command line arguments
+	 */
+	public static void main(final String... args) {
 
-        LOGGER.info("\n========================================================="
-                  + "\n                                                         "
-                  + "\n          Welcome to Spring Integration!                 "
-                  + "\n                                                         "
-                  + "\n    For more information please visit:                   "
-                  + "\n    http://www.springsource.org/spring-integration       "
-                  + "\n                                                         "
-                  + "\n=========================================================" );
+		if (LOGGER.isInfoEnabled()) {
+			LOGGER.info("\n========================================================="
+					  + "\n                                                         "
+					  + "\n          Welcome to Spring Integration!                 "
+					  + "\n                                                         "
+					  + "\n    For more information please visit:                   "
+					  + "\n    http://www.springsource.org/spring-integration       "
+					  + "\n                                                         "
+					  + "\n=========================================================" );
+		}
 
-        final AbstractApplicationContext context =
-                new ClassPathXmlApplicationContext("classpath:META-INF/spring/integration/*-context.xml");
+		final AbstractApplicationContext context =
+				new ClassPathXmlApplicationContext("classpath:META-INF/spring/integration/*-context.xml");
 
-        context.registerShutdownHook();
+		context.registerShutdownHook();
 
-        final Scanner scanner = new Scanner(System.in);
+		final Scanner scanner = new Scanner(System.in);
 
-        final StringConversionService service = context.getBean(StringConversionService.class);
+		final StringConversionService service = context.getBean(StringConversionService.class);
 
-        LOGGER.info("\n========================================================="
-                  + "\n                                                         "
-                  + "\n    Please press 'q + Enter' to quit the application.    "
-                  + "\n                                                         "
-                  + "\n=========================================================" );
+		if (LOGGER.isInfoEnabled()) {
+			LOGGER.info("\n========================================================="
+					  + "\n                                                         "
+					  + "\n    Please press 'q + Enter' to quit the application.    "
+					  + "\n                                                         "
+					  + "\n=========================================================" );
+		}
 
-        System.out.print("Please enter a string and press <enter>: ");
+		System.out.print("Please enter a string and press <enter>: ");
 
-        while (true) {
+		while (true) {
 
-        	final String input = scanner.nextLine();
+			final String input = scanner.nextLine();
 
-        	if("q".equals(input.trim())) {
-        		break;
-        	}
+			if("q".equals(input.trim())) {
+				break;
+			}
 
-        	try {
+			try {
 
-	        	System.out.println("Converted to upper-case: " + service.convertToUpperCase(input));
+				System.out.println("Converted to upper-case: " + service.convertToUpperCase(input));
 
-        	} catch (Exception e) {
-        		LOGGER.error("An exception was caught: " + e);
-        	}
+			} catch (Exception e) {
+				LOGGER.error("An exception was caught: " + e);
+			}
 
-        	System.out.print("Please enter a string and press <enter>:");
+			System.out.print("Please enter a string and press <enter>:");
 
-        }
+		}
 
-        LOGGER.info("Exiting application...bye.");
+		if (LOGGER.isInfoEnabled()) {
+			LOGGER.info("Exiting application...bye.");
+		}
 
-        System.exit(0);
+		System.exit(0);
 
-    }
+	}
 }

@@ -21,20 +21,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.DirectFieldAccessor;
 import org.springframework.context.ApplicationContext;
+import org.springframework.integration.aggregator.SequenceSizeReleaseStrategy;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.FileWritingMessageHandler;
 
 /**
  * Displays the names of the input and output directories.
  *
+ * @author Your Name Here
+ * @version 1.0
+ *
  */
 public final class SpringIntegrationUtils {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SpringIntegrationUtils.class);
+	private static final Log logger = LogFactory.getLog(SequenceSizeReleaseStrategy.class);
 
     private SpringIntegrationUtils() { }
 
@@ -69,7 +73,7 @@ public final class SpringIntegrationUtils {
 
         stringBuilder.append("\n\n=========================================================");
 
-        LOGGER.info(stringBuilder.toString());
+        logger.info(stringBuilder.toString());
 
     }
 

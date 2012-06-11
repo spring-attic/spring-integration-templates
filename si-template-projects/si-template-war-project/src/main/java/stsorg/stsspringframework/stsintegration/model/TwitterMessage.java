@@ -19,6 +19,10 @@ import java.util.Date;
 
 /**
  * Represents some common Twitter related fields.
+ *
+ * @author Your Name Here
+ * @version 1.0
+ *
  */
 public class TwitterMessage {
 
