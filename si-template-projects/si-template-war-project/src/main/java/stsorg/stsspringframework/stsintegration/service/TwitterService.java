@@ -21,6 +21,10 @@ import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
 
 /**
  * Provides some basic methods for controlling the flow of Twitter messages.
+ * 
+ * @author Your Name Here
+ * @version 1.0
+ * 
  */
 public interface TwitterService {
 

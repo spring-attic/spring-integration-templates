@@ -16,7 +16,7 @@ ext {
 	targetCompatibility=1.6
 
 	junitVersion = '4.10'
-	slf4jVersion = '1.6.5'
+	log4jVersion = '1.2.16'
 	springIntegrationVersion = '2.1.2.RELEASE'
 	springframeworkVersion = '3.1.1.RELEASE'
 }
@@ -28,14 +28,8 @@ eclipse {
 dependencies {
 	compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
 	compile "org.springframework.integration:spring-integration-twitter:$springIntegrationVersion"
-
 	compile "org.springframework:spring-webmvc:$springframeworkVersion"
-
-	compile "ch.qos.logback:logback-classic:1.0.0"
-	compile "org.slf4j:slf4j-api:$slf4jVersion"
-	compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
-	compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
-
+	compile "log4j:log4j:$log4jVersion"
 	compile "commons-io:commons-io:2.1"
 
 	testCompile "junit:junit-dep:$junitVersion"
