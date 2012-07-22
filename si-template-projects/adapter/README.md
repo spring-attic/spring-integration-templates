@@ -11,7 +11,6 @@ stubbed out components:
 # STS issues to be aware of
 
 * [STS-1790](https://issuetracker.springsource.com/browse/STS-1790) - Allow for more flexibility in defining top level packages in the Spring STS Template Wizard
-* [STS-2680](https://issuetracker.springsource.com/browse/STS-2680) - New Template Wizard projects aren't categorized on first launch
 
 # FAQ
 

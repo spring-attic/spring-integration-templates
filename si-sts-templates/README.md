@@ -1,7 +1,11 @@
-Spring Integration STS Plugin and Templates
-===========================================
+Spring Integration STS Templates
+================================
 
-This project provides an plugin and various projects for SpringSource Tool Suite™.
+This project provides various project templates for SpringSource Tool Suite™ (STS).
+
+# Requirements
+
+Starting with Spring Integration STS Template 1.0.0.M4, we rely on the template support provided by STS **3.0.0.M3** and later. The simplifications allowed us to significantly simplify the development and build process for the templates.
 
 # How to build the project
 
@@ -9,32 +13,33 @@ In order to build the entire project run:
 
     $ mvn clean package
 
-This will result in *3 artifacts* being created under **target/out**:
+This will result in *5 artifacts* being created under **target/out**:
 
 * descriptor.xml
-* org.springframework.integration.sts.templates_1.0.0.M3.jar
-* si-template-1.0.0.M3.zip
+* si-template-adapter-1.0.0.M4.zip
+* si-template-standalone-1.0.0.M4.zip
+* si-template-standalone-simple-1.0.0.M4.zip
+* si-template-war-1.0.0.M4.zip
 
-In order to deploy to STS you have 2 options:
+In order to deploy to STS for **development** you have **2 options**:
 
-1. drop the Eclipse plugin **org.springframework.integration.sts.templates_1.0.0.M3.jar**
-   to your Eclipse STS **dropins/plugins folder**. Restart Eclipse STS.
+## Use the Self-Hosted Templates feature in STS
 
-2. Option 2 is good for developing/changing the Eclipse STS template.
+This approach is  **Best for Development**.
 
-Take the **si-template-1.0.0.M3.zip** jar file and unpack it in your Eclipse workspace in a directory called
-**.metadata/.sts/content/${pom.artifactId}-${pom.version}**. Then add or edit the
-template descriptor in **.metadata/.plugins/com.springsource.sts.content.core/content.xml**
-so it has this form:
+1. In STS - Go to **Preferences...** --> **Spring** --> **Template Projects**
+2. Mark the checkbox **Show self-hosted templates in New Template Wizard**
+3. Import the individual template projects into STS, they will be immediately available as templates
 
-	<descriptor id="${pom.artifactId}" kind="template" local="true"
-	      name="${pom.name}" size="0" version="${pom.version}">
-	   <description>...</description>
-	</descriptor>
+## Tell STS to use the descriptor.xml file (Best for hosting your )
 
-Make sure there are no conflicting templates with the same name and a different version.
+This approach is **Best for Deploying** your own temapltes.
 
-## Important
+1. In STS - Go to **Preferences...** --> **Spring** --> **Template Projects**
+2. Press the **Add** Button
+3. Enter the URL that points to the **descriptor.xml** (Currently only HTTP addresses are supported, local file support will be available soon - see: [STS-2666](https://issuetracker.springsource.com/browse/STS-2666))
+
+## Important 1
 
 A few files in the template project require absolute URLs. By default the pom is setup to use:
 
@@ -44,4 +49,8 @@ Therefore, if you prefer a custom base location (e.g.: http://www.mysite.com/si-
 base.location property such as:
 
     $ mvn package -Dbase.location=http://www.mysite.com/si-templates
+
+## Important 2
+
+Templates are locally cached under *your_workspace/.metadata/.sts/content/*. At times during development you may need to delete the templates there for various reasons... 
 
