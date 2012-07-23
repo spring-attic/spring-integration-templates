@@ -1,0 +1,4 @@
+# Tooling related information for the integration SIAdapterUpperPrefix namespace
+http\://www.springframework.org/schema/integration/siAdapterLowerPrefix@name=integration SIAdapterUpperPrefix Namespace
+http\://www.springframework.org/schema/integration/siAdapterLowerPrefix@prefix=int-siAdapterLowerPrefix
+http\://www.springframework.org/schema/integration/siAdapterLowerPrefix@icon=org/springframework/integration/siAdapterLowerPrefix/config/xml/spring-integration-siAdapterLowerPrefix.gif

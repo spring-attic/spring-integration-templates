@@ -1,0 +1,15 @@
+<template>
+	<descriptor
+		id="org.springframework.integration.sts.template.adapter"
+		name="Spring Integration Adapter Template Project"
+		kind="template"
+		category="${template.category}"
+		version="${template.version}">
+		<description>
+			Creates a Spring Integration Adapter Template Project. Use this template to
+			create new Spring Integration Adapters. Requires Gradle Support.
+		</description>
+	</descriptor>
+	<project path="" />
+	<json path="wizard.json" />
+</template>
