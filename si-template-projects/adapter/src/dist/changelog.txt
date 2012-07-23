@@ -1,0 +1,15 @@
+Spring Integration SIAdapterUpperPrefix Adapter CHANGELOG
+=========================================
+
+For the full detailed changelog, see:
+https://....
+
+
+Changes in version SI-TEMPLATE-VERSION GA (insert date here)
+https://....
+
+
+*** GENERAL ***
+
+Upgraded Spring Framework dependency to ...
+...
