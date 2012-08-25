@@ -20,7 +20,7 @@
 	<section id="jpa-java-implementation">
 		<title>Java Implementation</title>
 		<para>Each of the provided components will use the
-			<classname>stsorg.stsspring.stsint.core.SIAdapterUpperPrefixExecutor</classname>
+			<classname>sipackage.core.SIAdapterUpperPrefixExecutor</classname>
 			class...
 		</para>
 	</section>

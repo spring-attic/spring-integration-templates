@@ -1,1 +1,1 @@
-http\://www.springframework.org/schema/integration/siAdapterLowerPrefix=stsorg.stsspring.stsint.config.xml.SIAdapterUpperPrefixNamespaceHandler
+http\://www.springframework.org/schema/integration/siAdapterLowerPrefix=sipackage.config.xml.SIAdapterUpperPrefixNamespaceHandler

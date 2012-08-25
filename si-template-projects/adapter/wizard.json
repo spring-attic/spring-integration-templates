@@ -35,7 +35,7 @@
 				},
 				{
 					"name" : "SI-TEMPLATE-VERSION",
-					"description" : "Please enter a short version e.g. '1.0' (For JavaDoc, and XSD Schema Naming)",
+					"description" : "Please enter a short version e.g. '1.0' (For JavaDocs)",
 					"defaultValue": "1.0",
 					"type" : "java.lang.String",
 					"page" : 0,
@@ -55,13 +55,13 @@
 					"type" : "java.lang.String",
 					"page" : 0,
 					"required" : true,
-					"pattern" : "\\w+\\.\\w+(\\.\\w+)+",
+					"pattern" : "\\w+(\\.\\w+)*",
 					"replaceKind" : "topLevelPackage"
 				}
 			]
 		},
 
-		"topLevelPackage" : "stsorg.stsspring.stsint.subpackage",
+		"topLevelPackage" : "sipackage",
 		"projectName" : "si-template-project-name",
 		"pages" : {
 			"page" : [
