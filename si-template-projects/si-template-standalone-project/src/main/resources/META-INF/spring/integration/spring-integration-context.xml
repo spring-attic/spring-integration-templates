@@ -5,9 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/integration
-						http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+						http://www.springframework.org/schema/integration/spring-integration.xsd
 						http://www.springframework.org/schema/integration/file
-						http://www.springframework.org/schema/integration/file/spring-integration-file-2.1.xsd">
+						http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
 
 	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#channel-adapter
 		http://www.eaipatterns.com/ChannelAdapter.html -->
@@ -55,6 +55,6 @@
 		expression="'Processing file: ' + headers.file_name + ' (' + headers.file_size + ' bytes) '" />
 
 	<bean id="transformationHandler"
-		class="stsorg.stsspringframework.stsintegration.TransformationHandler" />
+		class="sipackage.TransformationHandler" />
 
 </beans>

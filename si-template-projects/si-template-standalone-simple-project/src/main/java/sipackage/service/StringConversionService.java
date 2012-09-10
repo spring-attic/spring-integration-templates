@@ -13,19 +13,20 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.service;
+package sipackage.service;
 
 /**
  * Provides string manipulation services.
+ *
+ * @author Your Name Here
+ * @version 1.0
+ *
  */
 public interface StringConversionService {
 
 	/**
 	 * Converts a String to Upper Case.
-	 *
-	 * @author Your Name Here
-	 * @version 1.0
-	 *
+	 * 
 	 * @param stringToConvert The string to convert to upper case
 	 * @return The converted upper case string.
 	 */
