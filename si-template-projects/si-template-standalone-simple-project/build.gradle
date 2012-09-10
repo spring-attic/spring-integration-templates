@@ -24,7 +24,7 @@ eclipse {
 	}
 }
 
-mainClassName = "stsorg.stsspringframework.stsintegration.Main"
+mainClassName = "sipackage.Main"
 
 run{
 	standardInput = System.in

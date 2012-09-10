@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package stsorg.stsspringframework.stsintegration;
+package sipackage;
 
 import static junit.framework.Assert.*;
 
@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import stsorg.stsspringframework.stsintegration.service.StringConversionService;
+import sipackage.service.StringConversionService;
 
 /**
  * Verify that the Spring Integration Application Context starts successfully.

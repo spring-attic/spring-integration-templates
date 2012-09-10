@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration;
+package sipackage;
 
 import java.util.Scanner;
 
@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import stsorg.stsspringframework.stsintegration.service.StringConversionService;
+import sipackage.service.StringConversionService;
 
 
 /**

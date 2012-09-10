@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package stsorg.stsspringframework.stsintegration;
+package sipackage;
 
 import java.io.File;
 import java.io.IOException;

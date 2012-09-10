@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/integration
-		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd">
+		http://www.springframework.org/schema/integration/spring-integration.xsd">
 
 	<!-- See also:
 		http://static.springsource.org/spring-integration/reference/htmlsingle/#gateway-proxy
@@ -15,7 +15,7 @@
 		default-reply-timeout="5000"
 		default-request-channel="requestChannel"
 		default-reply-channel="replyChannel"
-		service-interface="stsorg.stsspringframework.stsintegration.service.StringConversionService">
+		service-interface="sipackage.service.StringConversionService">
 		<int:method name="convertToUpperCase"/>
 	</int:gateway>
 
