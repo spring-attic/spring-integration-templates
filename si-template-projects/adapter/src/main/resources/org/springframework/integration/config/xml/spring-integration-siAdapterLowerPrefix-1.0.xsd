@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.springframework.org/schema/integration/siAdapterLowerPrefix"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:tool="http://www.springframework.org/schema/tool"
+	xmlns:integration="http://www.springframework.org/schema/integration"
+	targetNamespace="http://www.springframework.org/schema/integration/siAdapterLowerPrefix"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:import namespace="http://www.springframework.org/schema/beans" />
+	<xsd:import namespace="http://www.springframework.org/schema/tool" />
+	<xsd:import namespace="http://www.springframework.org/schema/integration"
+		schemaLocation="http://www.springframework.org/schema/integration/spring-integration.xsd" />
+
+	<xsd:annotation>
+		<xsd:documentation><![CDATA[
+			Defines the configuration elements for the Spring Integration
+			SIAdapterUpperPrefix Adapter.
+		]]></xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="inbound-channel-adapter">
+		<xsd:annotation>
+			<xsd:documentation>
+				The definition for the Spring Integration SIAdapterUpperPrefix
+				Inbound Channel Adapter.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="integration:poller" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="coreSIAdapterUpperPrefixComponentAttributes"/>
+			<xsd:attribute name="channel" type="xsd:string">
+				<xsd:annotation>
+					<xsd:appinfo>
+						<tool:annotation kind="ref">
+							<tool:expected-type type="org.springframework.integration.core.MessageChannel" />
+						</tool:annotation>
+					</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="send-timeout" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+						Allows you to specify how long this inbound-channel-adapter
+						will wait for the message (containing the retrieved entities)
+						to be sent successfully to the message channel, before throwing
+						an exception.
+
+						Keep in mind that when sending to a DirectChannel, the
+						invocation will occur in the sender's thread so the failing
+						of the send operation may be caused by other components
+						further downstream. By default the Inbound Channel Adapter
+						will wait indefinitely. The value is specified in milliseconds.
+					]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="outbound-channel-adapter">
+			<xsd:annotation>
+					<xsd:documentation>
+							Defines an outbound Channel Adapter.
+					</xsd:documentation>
+			</xsd:annotation>
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element ref="integration:poller" minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+				<xsd:attributeGroup ref="coreSIAdapterUpperPrefixComponentAttributes"/>
+				<xsd:attribute name="channel" type="xsd:string">
+					<xsd:annotation>
+						<xsd:appinfo>
+							<xsd:documentation>
+								Channel from which messages will be output.
+								When a message is sent to this channel it will
+								cause the query
+								to be executed.
+							</xsd:documentation>
+							<tool:annotation kind="ref">
+								<tool:expected-type type="org.springframework.integration.MessageChannel" />
+							</tool:annotation>
+						</xsd:appinfo>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="order">
+					<xsd:annotation>
+						<xsd:documentation>
+							Specifies the order for invocation when this endpoint is connected as a
+							subscriber to a SubscribableChannel.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="outbound-gateway">
+		<xsd:annotation>
+			<xsd:documentation>
+				Defines the Spring Integration SIAdapterUpperPrefix Outbound Gateway
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="integration:poller" minOccurs="0" maxOccurs="1" />
+			</xsd:sequence>
+			<xsd:attributeGroup ref="coreSIAdapterUpperPrefixComponentAttributes" />
+			<xsd:attribute name="request-channel" type="xsd:string" use="required">
+				<xsd:annotation>
+					<xsd:documentation>
+						The receiving Message Channel of this endpoint.
+					</xsd:documentation>
+					<xsd:appinfo>
+						<tool:annotation kind="ref">
+							<tool:expected-type type="org.springframework.integration.core.MessageChannel" />
+						</tool:annotation>
+					</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="reply-channel" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						Message Channel to which replies should be
+						sent, after receiving the database response.
+					</xsd:documentation>
+					<xsd:appinfo>
+						<tool:annotation kind="ref">
+							<tool:expected-type type="org.springframework.integration.core.MessageChannel" />
+						</tool:annotation>
+					</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="reply-timeout" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+						Allows you to specify how long this gateway will wait for
+						the reply message to be sent successfully before throwing
+						an exception. Keep in mind that when sending to a
+						DirectChannel, the invocation will occur in the sender's thread
+						so the failing of the send operation may be caused by other
+						components further downstream. By default the Gateway will
+						wait indefinitely. The value is specified in milliseconds.
+						]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="order">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the order for invocation when this endpoint is connected as a
+						subscriber to a SubscribableChannel.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:attributeGroup name="coreSIAdapterUpperPrefixComponentAttributes">
+		<xsd:attribute name="id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifies the underlying Spring bean definition, which is an
+					instance of either 'EventDrivenConsumer' or 'PollingConsumer',
+					depending on whether the component's input channel is a
+					'SubscribableChannel' or 'PollableChannel'.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="auto-startup" default="true" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate that the component should start automatically
+					on startup (default true).
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:union memberTypes="xsd:boolean xsd:string" />
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="example-property" use="required" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Example property to illustrate usage of properties in Spring
+					Integration components. Replace with your own logic.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+</xsd:schema>
