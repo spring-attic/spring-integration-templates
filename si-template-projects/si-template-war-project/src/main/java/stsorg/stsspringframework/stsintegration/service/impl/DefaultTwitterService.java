@@ -22,7 +22,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
-import org.springframework.integration.channel.DirectChannel;
+import org.springframework.integration.MessageChannel;
 import org.springframework.integration.core.MessagingTemplate;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.social.twitter.api.Tweet;
@@ -46,7 +46,7 @@ public class DefaultTwitterService implements TwitterService {
 
 	@Autowired
 	@Qualifier("controlBusChannel")
-	private DirectChannel channel;
+	private MessageChannel channel;
 
 	/**
 	 * Constructor that initializes the 'twitterMessages' Map as a simple LRU
