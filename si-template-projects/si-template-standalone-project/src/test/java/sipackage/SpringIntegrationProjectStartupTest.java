@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package stsorg.stsspringframework.stsintegration;
+package sipackage;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import stsorg.stsspringframework.stsintegration.SpringIntegrationUtils;
+import sipackage.SpringIntegrationUtils;
 
 /**
  * Verify that the Spring Integration Application Context starts successfully.

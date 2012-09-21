@@ -30,13 +30,12 @@
 					"type" : "java.lang.String",
 					"page" : 0,
 					"required" : true,
-					"pattern" : "\\w+\\.\\w+(\\.\\w+)+",
+					"pattern" : "\\w+(\\.\\w+)*",
 					"replaceKind" : "topLevelPackage"
 				}
-
 			]
 		},
-		"topLevelPackage" : "stsorg.stsspringframework.stsintegration.mysubsystem",
+		"topLevelPackage" : "sipackage",
 		"projectName" : "si-template-project-name",
 		"pages" : {
 			"page" : [
