@@ -9,7 +9,7 @@
 
 	<!-- Scans within the base package of the application for @Components to
 		configure as beans -->
-	<context:component-scan base-package="stsorg.stsspringframework.stsintegration.mvc.controller" />
+	<context:component-scan base-package="sipackage.mvc.controller" />
 
 	<!-- <mvc:default-servlet-handler /> -->
 

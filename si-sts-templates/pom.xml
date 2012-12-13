@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.integration.sts.templates</groupId>
 	<artifactId>si-sts-templates</artifactId>
-	<version>1.0.0.M3</version>
+	<version>1.0.0.M4</version>
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>
@@ -29,10 +29,10 @@
 		<template.version>${project.version}</template.version>
 		<template.category>Integration</template.category>
 
-		<template.standalone.size>12200</template.standalone.size>
-		<template.standalone-simple.size>9900</template.standalone-simple.size>
-		<template.war.size>61000</template.war.size>
-		<template.adapter.size>117000</template.adapter.size>
+		<template.standalone.size>15087</template.standalone.size>
+		<template.standalone-simple.size>12656</template.standalone-simple.size>
+		<template.war.size>64708</template.war.size>
+		<template.adapter.size>118119</template.adapter.size>
 
 	</properties>
 

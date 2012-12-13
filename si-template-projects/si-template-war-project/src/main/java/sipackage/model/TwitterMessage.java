@@ -13,15 +13,15 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.model;
+package sipackage.model;
 
 import java.util.Date;
 
 /**
  * Represents some common Twitter related fields.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  *
  */
 public class TwitterMessage {

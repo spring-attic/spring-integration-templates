@@ -13,17 +13,17 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.service;
+package sipackage.service;
 
 import java.util.Collection;
 
-import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
+import sipackage.model.TwitterMessage;
 
 /**
  * Provides some basic methods for controlling the flow of Twitter messages.
  * 
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  * 
  */
 public interface TwitterService {

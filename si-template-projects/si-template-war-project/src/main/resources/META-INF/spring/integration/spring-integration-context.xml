@@ -12,8 +12,7 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan
-		base-package="stsorg.stsspringframework.stsintegration.service" />
+	<context:component-scan base-package="sipackage"/>
 
 	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#twitter -->
 	<int-twitter:search-inbound-channel-adapter
@@ -28,8 +27,7 @@
 		input-channel="twitterChannel" output-channel="nullChannel" ref="twitterService"
 		method="addTwitterMessages" />
 
-	<bean id="twitterService"
-		class="stsorg.stsspringframework.stsintegration.service.impl.DefaultTwitterService" />
+	<bean id="twitterService" class="sipackage.service.impl.DefaultTwitterService"/>
 
 	<int:logging-channel-adapter id="logger"
 		level="INFO"

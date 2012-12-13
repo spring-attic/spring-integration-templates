@@ -18,8 +18,8 @@ package sipackage.service;
 /**
  * Provides string manipulation services.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  *
  */
 public interface StringConversionService {

@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package stsorg.stsspringframework.stsintegration;
+package sipackage;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  */
 public class SpringIntegrationTest {
 

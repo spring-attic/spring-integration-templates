@@ -16,7 +16,7 @@
 
 package sipackage;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +26,10 @@ import sipackage.service.StringConversionService;
 
 /**
  * Verify that the Spring Integration Application Context starts successfully.
+ * 
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
+ * 
  */
 public class StringConversionServiceTest {
 

@@ -25,14 +25,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.DirectFieldAccessor;
 import org.springframework.context.ApplicationContext;
+import org.springframework.expression.Expression;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.FileWritingMessageHandler;
 
 /**
  * Displays the names of the input and output directories.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  *
  */
 public final class SpringIntegrationUtils {
@@ -56,8 +57,8 @@ public final class SpringIntegrationUtils {
 		final List<String> outputDirectories = new ArrayList<String>();
 
 		for (final FileWritingMessageHandler messageHandler : fileWritingMessageHandlers.values()) {
-			final File outDir = (File) new DirectFieldAccessor(messageHandler).getPropertyValue("destinationDirectory");
-			outputDirectories.add(outDir.getAbsolutePath());
+			final Expression outDir = (Expression) new DirectFieldAccessor(messageHandler).getPropertyValue("destinationDirectoryExpression");
+			outputDirectories.add(outDir.getExpressionString());
 		}
 
 		final StringBuilder stringBuilder = new StringBuilder();
