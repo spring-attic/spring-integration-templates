@@ -32,8 +32,8 @@ import org.springframework.integration.support.MessageBuilder;
  * the file into a string, converts the file contents into an upper-case string
  * and then sets a few Spring Integration message headers.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  */
 public class TransformationHandler {
 
@@ -59,13 +59,12 @@ public class TransformationHandler {
 		}
 
 		final Message<String> message = MessageBuilder.withPayload(inputAsString.toUpperCase(Locale.ENGLISH))
-					  .setHeader(FileHeaders.FILENAME,      filename)
-					  .setHeader(FileHeaders.ORIGINAL_FILE, inputFile)
-					  .setHeader("file_size", inputFile.length())
-					  .setHeader("file_extension", fileExtension)
-					  .build();
+					.setHeader(FileHeaders.FILENAME,      filename)
+					.setHeader(FileHeaders.ORIGINAL_FILE, inputFile)
+					.setHeader("file_size", inputFile.length())
+					.setHeader("file_extension", fileExtension)
+					.build();
 
 		return message;
 	}
-
 }

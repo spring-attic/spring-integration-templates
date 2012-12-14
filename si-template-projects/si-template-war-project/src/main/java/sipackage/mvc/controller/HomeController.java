@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.mvc.controller;
+package sipackage.mvc.controller;
 
 import java.util.Collection;
 
@@ -24,14 +24,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
-import stsorg.stsspringframework.stsintegration.service.TwitterService;
+import sipackage.model.TwitterMessage;
+import sipackage.service.TwitterService;
 
 /**
  * Handles requests for the application home page.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  *
  */
 @Controller

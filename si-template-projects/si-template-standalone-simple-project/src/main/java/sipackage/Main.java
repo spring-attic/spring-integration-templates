@@ -27,8 +27,8 @@ import sipackage.service.StringConversionService;
 /**
  * Starts the Spring Context and will initialize the Spring Integration routes.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  *
  */
 public final class Main {

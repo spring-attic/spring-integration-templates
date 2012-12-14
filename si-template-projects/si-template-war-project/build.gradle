@@ -2,23 +2,24 @@ apply plugin: 'java'
 apply plugin: 'jetty'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply from: 'publish-maven.gradle'
 
 repositories {
 	mavenCentral()
 	maven { url 'http://repo.springsource.org/libs-milestone' }
 }
 
-group   = "mavenGroupId"
-version = "mavenVersion"
+group   = "SI-TEMPLATE-GROUP-ID"
+version = "SI-TEMPLATE-BUILD-VERSION"
+
+sourceCompatibility=1.6
+targetCompatibility=1.6
 
 ext {
-	sourceCompatibility=1.6
-	targetCompatibility=1.6
-
-	junitVersion = '4.10'
-	log4jVersion = '1.2.16'
-	springIntegrationVersion = '2.1.2.RELEASE'
-	springframeworkVersion = '3.1.1.RELEASE'
+	junitVersion = '4.11'
+	log4jVersion = '1.2.17'
+	springIntegrationVersion = '2.2.0.RELEASE'
+	springframeworkVersion = '3.1.3.RELEASE'
 }
 
 eclipse {
@@ -26,11 +27,31 @@ eclipse {
 }
 
 dependencies {
-	compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
-	compile "org.springframework.integration:spring-integration-twitter:$springIntegrationVersion"
-	compile "org.springframework:spring-webmvc:$springframeworkVersion"
-	compile "log4j:log4j:$log4jVersion"
-	compile "commons-io:commons-io:2.1"
 
 	testCompile "junit:junit-dep:$junitVersion"
+
+	// Spring
+
+	compile "org.springframework:spring-context:$springframeworkVersion"
+	compile "org.springframework:spring-webmvc:$springframeworkVersion"
+
+	// Spring Integration
+
+	compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+	compile "org.springframework.integration:spring-integration-twitter:$springIntegrationVersion"
+
+	// Logging
+
+	compile "log4j:log4j:$log4jVersion"
+
+	// Servlet
+
+	compile ("javax.servlet:servlet-api:2.5", provided)
+	compile ("javax.servlet.jsp:jsp-api:2.1", provided)
+	compile "javax.servlet:jstl:1.2"
+}
+
+task wrapper(type: Wrapper) {
+	description = 'Generates gradlew[.bat] scripts'
+	gradleVersion = '1.3'
 }

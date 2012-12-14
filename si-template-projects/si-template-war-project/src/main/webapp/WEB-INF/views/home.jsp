@@ -15,7 +15,7 @@
         <![endif]-->
         <link rel="stylesheet" href="<c:url value='/css/main.css'/>"  type="text/css">
 
-        <script src="<c:url value='/js/jquery-1.6.1.min.js'/>"></script>
+        <script src="<c:url value='/js/jquery-1.8.3.min.js'/>"></script>
         <script src="<c:url value='/js/jquery.periodicalupdater.js'/>"></script>
     </head>
     <body>
