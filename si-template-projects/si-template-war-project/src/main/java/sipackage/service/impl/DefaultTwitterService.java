@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.service.impl;
+package sipackage.service.impl;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -28,14 +28,14 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.stereotype.Service;
 
-import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
-import stsorg.stsspringframework.stsintegration.service.TwitterService;
+import sipackage.model.TwitterMessage;
+import sipackage.service.TwitterService;
 
 /**
  * Implementation of the TwitterService interface.
  *
- * @author Your Name Here
- * @version 1.0
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
  *
  */
 @Service

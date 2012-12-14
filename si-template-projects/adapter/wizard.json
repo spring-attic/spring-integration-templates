@@ -60,7 +60,6 @@
 				}
 			]
 		},
-
 		"topLevelPackage" : "sipackage",
 		"projectName" : "si-template-project-name",
 		"pages" : {

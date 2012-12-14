@@ -18,6 +18,9 @@
 				<exclude>**/.settings/**</exclude>
 				<exclude>**/.pmd</exclude>
 				<exclude>**/.idea/**</exclude>
+				<exclude>**/gradle/**</exclude>
+				<exclude>**/gradlew*</exclude>
+				<exclude>**/publish-maven.gradle</exclude>
 				<exclude>**/.gradle/**</exclude>
 				<exclude>**/build.gradle</exclude>
 				<exclude>**/build/**</exclude>
@@ -31,6 +34,14 @@
 			<source>${project.basedir}/../si-template-projects/si-template-standalone-simple-project/template.xml</source>
 			<outputDirectory></outputDirectory>
 			<filtered>true</filtered>
+		</file>
+		<file>
+			<source>${project.basedir}/../si-template-projects/si-template-standalone-simple-project/.settings/org.eclipse.core.resources.prefs</source>
+			<outputDirectory>.settings</outputDirectory>
+		</file>
+		<file>
+			<source>${project.basedir}/../si-template-projects/si-template-standalone-simple-project/.settings/org.eclipse.jdt.core.prefs</source>
+			<outputDirectory>.settings</outputDirectory>
 		</file>
 	</files>
 </assembly>

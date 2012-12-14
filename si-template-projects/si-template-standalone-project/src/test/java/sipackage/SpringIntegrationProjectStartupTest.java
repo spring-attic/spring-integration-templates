@@ -24,6 +24,10 @@ import sipackage.SpringIntegrationUtils;
 
 /**
  * Verify that the Spring Integration Application Context starts successfully.
+ *
+ * @author SI-TEMPLATE-AUTHOR
+ * @since SI-TEMPLATE-VERSION
+ *
  */
 public class SpringIntegrationProjectStartupTest {
 
