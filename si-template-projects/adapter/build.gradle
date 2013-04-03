@@ -5,7 +5,7 @@ buildscript {
 		maven { url 'https://repo.springsource.org/plugins-snapshot' }
 	}
 	dependencies {
-		classpath 'org.springframework.build.gradle:docbook-reference-plugin:0.1.5'
+		classpath 'org.springframework.build.gradle:docbook-reference-plugin:0.2.6'
 	}
 }
 
@@ -260,5 +260,5 @@ task dist(dependsOn: assemble) {
 
 task wrapper(type: Wrapper) {
 	description = 'Generates gradlew[.bat] scripts'
-	gradleVersion = '1.3'
+	gradleVersion = '1.5'
 }
