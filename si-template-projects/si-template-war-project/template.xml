@@ -4,6 +4,7 @@
 		name="Spring Integration Project (War)"
 		kind="template"
 		version="${template.version}"
+		requiresbundle="org.eclipse.m2e.core"
 		category="${template.category}">
 		<description>
 			Creates a Spring Integration project that runs within a servlet container.
