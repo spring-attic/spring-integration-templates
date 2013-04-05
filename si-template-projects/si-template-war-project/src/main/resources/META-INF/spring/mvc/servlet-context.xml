@@ -1,34 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Scans within the base package of the application for @Components to
-		configure as beans -->
-	<context:component-scan base-package="sipackage.mvc.controller" />
+	<!-- Scans within the base package of the application for @Components to configure as beans -->
+	<context:component-scan base-package="stsorg.stsspringframework.stsintegration.mvc.controller" />
 
-	<!-- <mvc:default-servlet-handler /> -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing
-		infrastructure -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean
+				class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+				<property name="conversionService" ref="conversionService" />
+			</bean>
+		</property>
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonConverter" />
+				<ref bean="marshallingConverter" />
+			</list>
+		</property>
+	</bean>
 
-	<!-- Enables the Spring MVC @Controller programming model -->
-	<mvc:annotation-driven />
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+		<property name="contentNegotiationManager">
+			<bean class="org.springframework.web.accept.ContentNegotiationManager">
+				<constructor-arg>
+					<bean
+						class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+						<constructor-arg>
+							<map>
+								<entry key="json" value="application/json" />
+								<entry key="xml" value="application/xml" />
+							</map>
+						</constructor-arg>
+					</bean>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<property name="marshaller" ref="jaxbMarshaller" />
+				</bean>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+					<property name="objectMapper" ref="jaxbJacksonObjectMapper" />
+					<property name="extractValueFromSingleKeyModel" value="true" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="2" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="3" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="errors/error" />
+	</bean>
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving
-		up static resources in the ${webappRoot}/css directory -->
-	<mvc:resources mapping="/css/**" location="/css/" />
-	<mvc:resources mapping="/js/**" location="/js/" />
+		up static resources in the ${webappRoot}/assets directory -->
+	<mvc:resources mapping="/assets/**" location="/assets/" cache-period="31556926"/>
+	<mvc:resources mapping="/wro/**"    location="/wro/"/>
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources
-		in the /WEB-INF/views directory -->
-	<beans:bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+		<property name="order" value="2" />
+	</bean>
+
+	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes" value="application/json" />
+	</bean>
+
+	<bean id="marshallingConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+		<constructor-arg ref="jaxbMarshaller" />
+		<property name="supportedMediaTypes" value="application/xml" />
+	</bean>
+
+	<bean id="jaxbJacksonObjectMapper" class="stsorg.stsspringframework.stsintegration.support.JaxbJacksonObjectMapper" />
+
+	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>stsorg.stsspringframework.stsintegration.model.TwitterMessage</value>
+				<value>stsorg.stsspringframework.stsintegration.model.TwitterMessages</value>
+				<value>stsorg.stsspringframework.stsintegration.model.TwitterAdapterStatus</value>
+			</list>
+		</property>
+	</bean>
 </beans>

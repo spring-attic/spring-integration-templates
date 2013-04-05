@@ -1,70 +1,198 @@
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Spring Integration Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-<!DOCTYPE HTML>
-<html>
-    <head>
+		<!-- Le styles -->
+		<link href="<c:url value='/wro/g1.css'/>" rel="stylesheet">
 
-        <title>Welcome to Spring Integration</title>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="<c:url value='/assets/ico/favicon.ico'/>">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value='/assets/ico/apple-touch-icon-144-precomposed.png'/>">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value='/assets/ico/apple-touch-icon-114-precomposed.png'/>">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value='/assets/ico/apple-touch-icon-72-precomposed.png'/>">
+		<link rel="apple-touch-icon-precomposed" href="<c:url value='/assets/ico/apple-touch-icon-57-precomposed.png'/>">
+	</head>
 
-        <link rel="stylesheet" href="<c:url value='/css/blueprint/screen.css'/>" type="text/css" media="screen, projection">
-        <link rel="stylesheet" href="<c:url value='/css/blueprint/print.css'/>"  type="text/css" media="print">
-        <!--[if lt IE 8]>
-            <link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection">
-        <![endif]-->
-        <link rel="stylesheet" href="<c:url value='/css/main.css'/>"  type="text/css">
+	<body>
 
-        <script src="<c:url value='/js/jquery-1.8.3.min.js'/>"></script>
-        <script src="<c:url value='/js/jquery.periodicalupdater.js'/>"></script>
-    </head>
-    <body>
-        <div class="container">
-            <div id="header" class="prepend-1 span-22 append-1 last">
-                <h1 class="loud">
-                    Welcome to Spring Integration
-                </h1>
-                <div>
-                    <form:form id="formId">
-                        <input id="startTwitter" type="submit" name="startTwitter" value="Start Twitter Search" /> |
-                        <input id="stopTwitter" type="submit" name="stopTwitter"   value="Stop Twitter Search" />
-                    </form:form>
-                </div>
-            </div>
-            <div id="content" class="prepend-1 span-22 append-1 prepend-top last">
-                <%@ include file="/WEB-INF/views/twitterMessages.jsp"%>
-            </div>
-        </div>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="#">Twitter Template</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#aboutModal" data-toggle="modal">About</a></li>
+							<li class="dropdown" id="menu-resources">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#menu-resources">
+									Resources
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="https://github.com/SpringSource/spring-integration"><i class="icon-home"></i> Spring Integration</a></li>
+									<li><a href="https://github.com/SpringSource/spring-integration-samples"><i class="icon-share"></i> Samples</a></li>
+									<li><a href="http://forum.springsource.org/forumdisplay.php?42-Integration"><i class="icon-share"></i> Forums</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
 
-        <script type="text/javascript">
+		<div class="container">
+			<div class="page-header">
+				<h1>Spring Integration <small>Twitter Template</small></h1>
+			</div>
 
-            $.PeriodicalUpdater('<c:url value="/ajax"/>', {
-                        method: 'get', // method; get or post
-                        data: '', // array of values to be passed to the page - e.g. {name: "John", greeting: "hello"}
-                        minTimeout: 5000, // starting value for the timeout in milliseconds
-                        maxTimeout: 20000, // maximum length of time between requests
-                        multiplier: 2, // the amount to expand the timeout by if the response hasn't changed (up to maxTimeout)
-                        type: 'text', // response type - text, xml, json, etc. See $.ajax config options
-                        maxCalls: 0, // maximum number of calls. 0 = no limit.
-                        autoStop: 0 // automatically stop requests after this many returns of the same data. 0 = disabled.
-                    }, function(remoteData, success, xhr, handle) {
-                        $('#content').html(remoteData);
+			<div class="row">
+				<div class="span8" id="tweets">
+					<c:choose>
+						<c:when test="${not empty tweets.twitterMessages}">
+							<c:forEach items="${tweets.twitterMessages}" var="tweet">
+								<div id="${tweet.id}" class="row" style="margin-bottom: 5px;">
+									<div class="span1">
+										<img alt="${tweet.fromUser}"
+											title="${tweet.fromUser}"
+											src="${tweet.profileImageUrl}"
+											width="48" height="48"/>
+									</div>
+									<div class="span6">
+										<p><c:out value="${tweet.text}"/></p>
+										<p><small><c:out value="${tweet.createdAtISO}"/></small></p>
+									</div>
+									<div class="span1 delete">
+										<button class="close">&times;</button>
+									</div>
+								</div>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							&nbsp;
+						</c:otherwise>
+					</c:choose>
+				</div>
+				<div class="span2">
+					<div>
+						Twitter Adapter
+					</div>
+					<button id="startTwitterAdapter" class="btn btn-success disabled"><i class="icon-play"></i></button>
+					<button id="stopTwitterAdapter"  class="btn btn-warning disabled"><i class="icon-stop"></i></button>
+				</div>
+			</div>
 
-                });
+		</div> <!-- /container -->
 
-            $(function() {
-                $('#startTwitter').bind('click', function() {
-                    $.post("<c:url value='/'/>", "startTwitter=startTwitter");
-                    return false;
-                });
+		<div class="navbar navbar-fixed-bottom">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="http://www.springsource.org/"><img alt="SpringSource"
+							title="SpringSource" src="${ctx}/assets/img/spring/SpringSource-logo.png"></a>
+				</div>
+			</div>
+		</div>
 
-                $('#stopTwitter').bind('click', function() {
-                    $.post("<c:url value='/'/>", "stopTwitter=stopTwitter");
-                    return false;
-                });
-            });
+		<div id="aboutModal" class="modal" style="display: none;">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal" type="button">×</button>
+				<h3>About...</h3>
+			</div>
+			<div class="modal-body">
+				<h4>About this Tempplate</h4>
+				<p>
+					This UI is part of the WAR deployable Spring Integration
+					Template.
+				</p>
+				<h4>About Spring Integration</h4>
+				<p>
+					To learn more about Spring Integration, please visit:
+					<a href="http://www.springsource.org/spring-integration/">
+						http://www.springsource.org/spring-integration/
+					</a>
+				</p>
+				<hr>
+			</div>
+			<div class="modal-footer">
+				<a class="btn" data-dismiss="modal" href="#">Close</a>
+			</div>
+		</div>
 
-        </script>
+		<!-- Le javascript
+		================================================== -->
 
-    </body>
+		<script type="text/javascript">
+
+			var startStopUrl = '<c:url value="/adapter/"/>';
+			var latestTweetId = '0';
+			var tweetsUrl    = '<c:url value="/tweets.json?sortOrder=DESCENDING"/>';
+		</script>
+
+		<script src="<c:url value='/wro/g1.js'/>"></script>
+
+<%-- 	<script src="<c:url value='/assets/js/jquery.js'/>"></script>
+		<script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
+		<script src="<c:url value='/assets/js/jquery.periodicalupdater.js'/>"></script>
+		<script src="<c:url value='/assets/js/handlebars.js'/>"></script>
+		<script src="<c:url value='/assets/js/spin.js'/>"></script>
+		<script src="<c:url value='/assets/js/custom.js'/>"></script> --%>
+
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+
+				<c:if test="${empty tweets.twitterMessages}">
+					$("#tweets").spin();
+				</c:if>
+				$("#startTwitterAdapter").click(function (){
+					jQuery.ajax(startStopUrl + "start");
+					$("#startTwitterAdapter").addClass("disabled");
+					$("#stopTwitterAdapter").addClass("disabled");
+				});
+				$("#stopTwitterAdapter").click(function (){
+					jQuery.ajax(startStopUrl + "stop");
+					$("#startTwitterAdapter").addClass("disabled");
+					$("#stopTwitterAdapter").addClass("disabled");
+				});
+
+			});
+		</script>
+
+		<script id="tweet-template" type="text/x-handlebars-template">
+			{{#each tweets}}
+				{{#with this}}
+					<div id="{{id}}" class="row" style="margin-bottom: 5px;">
+						<div class="span1">
+							<img alt="{{fromUser}}"
+								title="{{fromUser}}"
+								src="{{profileImageUrl}}"
+								width="48" height="48"/>
+						</div>
+						<div class="span6">
+							<p>{{text}}</p>
+							<p><small>{{createdAtISO}}</small></p>
+						</div>
+						<div class="span1 delete">
+							<button class="close">&times;</button>
+						</div>
+					</div>
+				{{/with}}
+			{{/each}}
+		</script>
+	</body>
 </html>
