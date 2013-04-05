@@ -4,6 +4,7 @@
 		name="Spring Integration Adapter Template Project"
 		kind="template"
 		category="${template.category}"
+		requiresbundle="org.springsource.ide.eclipse.gradle.core"
 		version="${template.version}">
 		<description>
 			Creates a Spring Integration Adapter Template Project. Use this template to

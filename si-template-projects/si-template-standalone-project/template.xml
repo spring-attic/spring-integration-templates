@@ -4,6 +4,7 @@
 		name="Spring Integration Project (Standalone) - File"
 		kind="template"
 		category="${template.category}"
+		requiresbundle="org.eclipse.m2e.core"
 		version="${template.version}">
 		<description>
 			Creates a Spring Integration project that runs as a standalone Java
