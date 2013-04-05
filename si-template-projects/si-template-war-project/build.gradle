@@ -2,24 +2,27 @@ apply plugin: 'java'
 apply plugin: 'jetty'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply from: 'publish-maven.gradle'
 
 repositories {
 	mavenCentral()
 	maven { url 'http://repo.springsource.org/libs-milestone' }
 }
 
-group   = "SI-TEMPLATE-GROUP-ID"
-version = "SI-TEMPLATE-BUILD-VERSION"
-
-sourceCompatibility=1.6
-targetCompatibility=1.6
+group   = "mavenGroupId"
+version = "mavenVersion"
 
 ext {
+	sourceCompatibility=1.6
+	targetCompatibility=1.6
+
+	springIntegrationVersion = '2.2.3.RELEASE'
+	springframeworkVersion = '3.2.2.RELEASE'
+	guavaVersion = '14.0.1'
+	jacksonVersion = '1.9.11'
 	junitVersion = '4.11'
 	log4jVersion = '1.2.17'
-	springIntegrationVersion = '2.2.0.RELEASE'
-	springframeworkVersion = '3.1.3.RELEASE'
+	wro4jVersion = '1.6.3'
+
 }
 
 eclipse {
@@ -28,30 +31,18 @@ eclipse {
 
 dependencies {
 
-	testCompile "junit:junit-dep:$junitVersion"
-
-	// Spring
-
-	compile "org.springframework:spring-context:$springframeworkVersion"
-	compile "org.springframework:spring-webmvc:$springframeworkVersion"
-
-	// Spring Integration
-
-	compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
-	compile "org.springframework.integration:spring-integration-twitter:$springIntegrationVersion"
-
-	// Logging
-
-	compile "log4j:log4j:$log4jVersion"
-
-	// Servlet
-
-	compile ("javax.servlet:servlet-api:2.5", provided)
-	compile ("javax.servlet.jsp:jsp-api:2.1", provided)
-	compile "javax.servlet:jstl:1.2"
-}
-
-task wrapper(type: Wrapper) {
-	description = 'Generates gradlew[.bat] scripts'
-	gradleVersion = '1.3'
+		testCompile "junit:junit:$junitVersion"
+		compile "org.springframework:spring-context:$springframeworkVersion"
+		compile "org.springframework:spring-webmvc:$springframeworkVersion"
+		compile "org.springframework:spring-oxm:$springframeworkVersion"
+		compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+		compile "org.springframework.integration:spring-integration-twitter:$springIntegrationVersion"
+		compile "log4j:log4j:$log4jVersion"
+		compile "org.slf4j:slf4j-log4j12:1.7.3"
+		compile "javax.servlet:jstl:1.2"
+		compile "org.codehaus.jackson:jackson-xc:$jacksonVersion"
+		compile "net.sf.ehcache:ehcache-web:2.0.4"
+		compile "ro.isdc.wro4j:wro4j-core:$wro4jVersion"
+		compile "ro.isdc.wro4j:wro4j-extensions:$wro4jVersion"
+		compile "com.google.guava:guava:$guavaVersion"
 }

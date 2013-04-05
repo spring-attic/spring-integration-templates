@@ -3,39 +3,23 @@
 		"elements" : {
 			"element" :	[
 				{
-					"name" : "SI-TEMPLATE-GROUP-ID",
- 					"description" : "Please enter a 'groupId'",
+					"name" : "mavenGroupId",
+					"description" : "Please enter a 'groupId'",
 					"type" : "java.lang.String",
 					"page" : 0,
 					"required" : true,
 				},
 				{
-					"name" : "SI-TEMPLATE-ARTIFACT-ID",
+					"name" : "si-template-war-artifactId",
 					"description" : "Please enter an 'artifactId'",
 					"type" : "java.lang.String",
 					"page" : 0,
 					"required" : true,
 				},
 				{
-					"name" : "SI-TEMPLATE-BUILD-VERSION",
-					"description" : "Please enter a build version e.g. '1.0.0.BUILD-SNAPSHOT'",
+					"name" : "mavenVersion",
+					"description" : "Please enter a version e.g. '1.0.0.BUILD-SNAPSHOT'",
 					"defaultValue": "1.0.0.BUILD-SNAPSHOT",
-					"type" : "java.lang.String",
-					"page" : 0,
-					"required" : true,
-				},
-				{
-					"name" : "SI-TEMPLATE-VERSION",
-					"description" : "Please enter a short version e.g. '1.0' (For JavaDocs)",
-					"defaultValue": "1.0",
-					"type" : "java.lang.String",
-					"page" : 0,
-					"required" : true,
-				},
-				{
-					"name" : "SI-TEMPLATE-AUTHOR",
-					"description" : "Please enter the author name",
-					"defaultValue": "Your name",
 					"type" : "java.lang.String",
 					"page" : 0,
 					"required" : true,
@@ -46,13 +30,13 @@
 					"type" : "java.lang.String",
 					"page" : 0,
 					"required" : true,
-					"pattern" : "\\w+(\\.\\w+)*",
+					"pattern" : "\\w+\\.\\w+(\\.\\w+)+",
 					"replaceKind" : "topLevelPackage"
 				}
 			]
 		},
-		"topLevelPackage" : "sipackage",
-		"projectName" : "si-template-project-name",
+		"topLevelPackage" : "stsorg.stsspringframework.stsintegration.mysubsystem",
+		"projectName" : "si-template-project-war",
 		"pages" : {
 			"page" : [
 				{

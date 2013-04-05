@@ -1,0 +1,13 @@
+<groups xmlns="http://www.isdc.ro/wro">
+	<group name="g1">
+		<css>/assets/css/bootstrap.css</css>
+		<css>/assets/css/custom.css</css>
+		<css>/assets/css/bootstrap-responsive.css</css>
+		<js>/assets/js/jquery.js</js>
+		<js>/assets/js/bootstrap.js</js>
+		<js>/assets/js/jquery.periodicalupdater.js</js>
+		<js>/assets/js/handlebars.js</js>
+		<js>/assets/js/spin.js</js>
+		<js>/assets/js/custom.js</js>
+	</group>
+</groups>

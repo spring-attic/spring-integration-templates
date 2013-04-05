@@ -1,33 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:META-INF/spring/integration/spring-integration-context.xml</param-value>
-    </context-param>
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:META-INF/spring/integration/spring-integration-context.xml</param-value>
+	</context-param>
 
-    <!-- Creates the Spring Container shared by all Servlets and Filters -->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
-    <!-- Processes application requests -->
-    <servlet>
-        <servlet-name>appServlet</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:META-INF/spring/mvc/servlet-context.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+	<filter>
+		<filter-name>gzipFilter</filter-name>
+		<filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>etagFilter</filter-name>
+		<filter-class>org.springframework.web.filter.ShallowEtagHeaderFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>WebResourceOptimizer</filter-name>
+		<filter-class>ro.isdc.wro.http.WroFilter</filter-class>
+		<init-param>
+			<param-name>gzipResources</param-name>
+			<param-value>TRUE</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>FALSE</param-value>
+		</init-param>
+	</filter>
 
-    <servlet-mapping>
-        <servlet-name>appServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+	<filter-mapping>
+		<filter-name>WebResourceOptimizer</filter-name>
+		<url-pattern>/wro/*</url-pattern>
+	</filter-mapping>
 
+	<filter-mapping>
+		<filter-name>gzipFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>etagFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+		<!-- Processes application requests -->
+		<servlet>
+				<servlet-name>appServlet</servlet-name>
+				<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+				<init-param>
+						<param-name>contextConfigLocation</param-name>
+						<param-value>classpath:META-INF/spring/mvc/servlet-context.xml</param-value>
+				</init-param>
+				<load-on-startup>1</load-on-startup>
+		</servlet>
+
+		<servlet-mapping>
+				<servlet-name>appServlet</servlet-name>
+				<url-pattern>/</url-pattern>
+		</servlet-mapping>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/errors/404.jsp</location>
+	</error-page>
 </web-app>
