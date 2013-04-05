@@ -15,7 +15,7 @@
 		<level value="info" />
 	</logger>
 
-	<logger name="sipackage">
+	<logger name="stsorg.stsspringframework.stsintegration">
 		<level value="info" />
 	</logger>
 
