@@ -6,7 +6,8 @@
 		kind="template"
 		version="${template.version}"
 		local="false"
-		requires="3.0.0"
+		requires="[3.0.0,4.0)"
+		requiresbundle="org.eclipse.m2e.core"
 		size="${template.standalone-simple.size}"
 		category="${template.category}"
 		url="${base.location}/si-template-standalone-simple-${template.version}.zip">
@@ -19,7 +20,8 @@
 		kind="template"
 		version="${template.version}"
 		local="false"
-		requires="3.0.0"
+		requires="[3.0.0,4.0)"
+		requiresbundle="org.eclipse.m2e.core"
 		size="${template.standalone.size}"
 		category="${template.category}"
 		url="${base.location}/si-template-standalone-${template.version}.zip">
@@ -32,7 +34,8 @@
 		kind="template"
 		version="${template.version}"
 		local="false"
-		requires="3.0.0"
+		requires="[3.0.0,4.0)"
+		requiresbundle="org.eclipse.m2e.core"
 		size="${template.war.size}"
 		category="${template.category}"
 		url="${base.location}/si-template-war-${template.version}.zip">
@@ -45,7 +48,8 @@
 		kind="template"
 		version="${template.version}"
 		local="false"
-		requires="3.0.0"
+		requires="[3.0.0,4.0)"
+		requiresbundle="org.springsource.ide.eclipse.gradle.core"
 		size="${template.adapter.size}"
 		category="${template.category}"
 		url="${base.location}/si-template-adapter-${template.version}.zip">
