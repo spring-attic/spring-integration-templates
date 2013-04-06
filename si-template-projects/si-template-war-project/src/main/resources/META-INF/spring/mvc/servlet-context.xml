@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Scans within the base package of the application for @Components to configure as beans -->
-	<context:component-scan base-package="stsorg.stsspringframework.stsintegration.mvc.controller" />
+	<context:component-scan base-package="sipackage.mvc.controller" />
 
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
 
@@ -94,14 +94,14 @@
 		<property name="supportedMediaTypes" value="application/xml" />
 	</bean>
 
-	<bean id="jaxbJacksonObjectMapper" class="stsorg.stsspringframework.stsintegration.support.JaxbJacksonObjectMapper" />
+	<bean id="jaxbJacksonObjectMapper" class="sipackage.support.JaxbJacksonObjectMapper" />
 
 	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="classesToBeBound">
 			<list>
-				<value>stsorg.stsspringframework.stsintegration.model.TwitterMessage</value>
-				<value>stsorg.stsspringframework.stsintegration.model.TwitterMessages</value>
-				<value>stsorg.stsspringframework.stsintegration.model.TwitterAdapterStatus</value>
+				<value>sipackage.model.TwitterMessage</value>
+				<value>sipackage.model.TwitterMessages</value>
+				<value>sipackage.model.TwitterAdapterStatus</value>
 			</list>
 		</property>
 	</bean>

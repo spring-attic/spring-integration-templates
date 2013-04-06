@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.mvc.controller;
+package sipackage.mvc.controller;
 
 import java.util.SortedSet;
 
@@ -26,11 +26,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import stsorg.stsspringframework.stsintegration.model.TwitterAdapterStatus;
-import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
-import stsorg.stsspringframework.stsintegration.model.TwitterMessages;
-import stsorg.stsspringframework.stsintegration.service.TwitterService;
-import stsorg.stsspringframework.stsintegration.support.SortOrder;
+import sipackage.model.TwitterAdapterStatus;
+import sipackage.model.TwitterMessage;
+import sipackage.model.TwitterMessages;
+import sipackage.service.TwitterService;
+import sipackage.support.SortOrder;
 
 /**
  * Handles requests for the application home page.

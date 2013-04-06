@@ -145,7 +145,7 @@
 
 		<script src="<c:url value='/wro/g1.js'/>"></script>
 
-<%-- 	<script src="<c:url value='/assets/js/jquery.js'/>"></script>
+<%-- 		<script src="<c:url value='/assets/js/jquery.js'/>"></script>
 		<script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
 		<script src="<c:url value='/assets/js/jquery.periodicalupdater.js'/>"></script>
 		<script src="<c:url value='/assets/js/handlebars.js'/>"></script>

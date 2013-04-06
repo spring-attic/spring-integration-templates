@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>mavenGroupId</groupId>
-	<artifactId>si-template-war-artifactId</artifactId>
-	<version>mavenVersion</version>
+	<groupId>SI-TEMPLATE-GROUP-ID</groupId>
+	<artifactId>SI-TEMPLATE-ARTIFACT-ID</artifactId>
+	<version>SI-TEMPLATE-BUILD-VERSION</version>
 	<packaging>war</packaging>
 
-	<name>si-template-project-war</name>
+	<name>si-template-project-name</name>
 	<url>http://www.springsource.org/spring-integration</url>
 
 	<prerequisites>
