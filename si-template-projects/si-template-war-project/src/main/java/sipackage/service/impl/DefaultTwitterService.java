@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.service.impl;
+package sipackage.service.impl;
 
 import java.util.Map;
 import java.util.SortedSet;
@@ -28,9 +28,9 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.stereotype.Service;
 
-import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
-import stsorg.stsspringframework.stsintegration.service.TwitterService;
-import stsorg.stsspringframework.stsintegration.support.SortOrder;
+import sipackage.model.TwitterMessage;
+import sipackage.service.TwitterService;
+import sipackage.support.SortOrder;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
