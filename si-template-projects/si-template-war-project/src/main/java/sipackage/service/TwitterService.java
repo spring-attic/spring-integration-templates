@@ -13,12 +13,12 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.service;
+package sipackage.service;
 
 import java.util.SortedSet;
 
-import stsorg.stsspringframework.stsintegration.model.TwitterMessage;
-import stsorg.stsspringframework.stsintegration.support.SortOrder;
+import sipackage.model.TwitterMessage;
+import sipackage.support.SortOrder;
 
 /**
  * Provides some basic methods for controlling the flow of Twitter messages.

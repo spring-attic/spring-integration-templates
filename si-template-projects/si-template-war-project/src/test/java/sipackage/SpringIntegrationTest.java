@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2012 the original author or authors.
+ * Copyright 2002-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,21 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package sipackage;
 
-package stsorg.stsspringframework.stsintegration;
-
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.xc.JaxbAnnotationIntrospector;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
+ * Customized Jackson {@link ObjectMapper} to add Jaxb annoation support using the
+ * {@link JaxbAnnotationIntrospector}.
+ *
+ * @author SI-TEMPLATE-AUTHOR
+ * @since  SI-TEMPLATE-VERSION
+ *
  */
 public class SpringIntegrationTest {
 
 	@Test
 	public void testSpringIntegrationContextStartup() throws Exception{
 
-		new ClassPathXmlApplicationContext("/META-INF/spring/integration/spring-integration-context.xml", SpringIntegrationTest.class);
+		ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/integration/spring-integration-context.xml", SpringIntegrationTest.class);
 		Thread.sleep(4000);
+		classPathXmlApplicationContext.close();
 
 	}
 

@@ -13,26 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.support;
+package sipackage.support;
 
-import org.codehaus.jackson.map.AnnotationIntrospector;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.xc.JaxbAnnotationIntrospector;
 
 /**
- * Customized Jackson {@link ObjectMapper} to add Jaxb annoation support using the
- * {@link JaxbAnnotationIntrospector}.
  *
  * @author SI-TEMPLATE-AUTHOR
  * @since  SI-TEMPLATE-VERSION
  *
  */
-public class JaxbJacksonObjectMapper extends ObjectMapper {
-
-	public JaxbJacksonObjectMapper() {
-		final AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
-		super.getDeserializationConfig().withAnnotationIntrospector(introspector);
-		super.getSerializationConfig().withAnnotationIntrospector(introspector);
-	}
-
+public enum SortOrder {
+	ASCENDING, DESCENDING;
 }

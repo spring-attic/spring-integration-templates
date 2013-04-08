@@ -3,18 +3,17 @@
 var tweetTemplate;
 
 $.PeriodicalUpdater(tweetsUrl, {
-	method : 'get', // method; get or post
+	method : 'get',
 	data : function() {
 		return {latestTweetId: window.latestTweetId};
-	}, // array of values to be passed to the page - e.g. {name: "John", greeting: "hello"}
-	minTimeout : 5000, // starting value for the timeout in milliseconds
-	maxTimeout : 20000, // maximum length of time between requests
-	multiplier : 2, // the amount to expand the timeout by if the response hasn't changed (up to maxTimeout)
-	type : 'json', // response type - text, xml, json, etc. See $.ajax config options
-	maxCalls : 0, // maximum number of calls. 0 = no limit.
+	},
+	minTimeout : 5000,
+	maxTimeout : 20000,
+	multiplier : 2,
+	type : 'json',
+	maxCalls : 0,
 	autoStop : 0
-// automatically stop requests after this many returns of the same data. 0 = disabled.
-}, function(remoteData, success, xhr, handle) {
+	}, function(remoteData, success, xhr, handle) {
 
 	if ("success" == success) {
 		latestTweetId = remoteData.latestTweetIdAsString;
@@ -28,19 +27,17 @@ $.PeriodicalUpdater(tweetsUrl, {
 			$("#stopTwitterAdapter").addClass("disabled");
 		}
 
-		console.log('Adapter Running: ' + adapterRunning + '; Latest Tweet Id' + window.latestTweetId);
+		console.log('Adapter Running: ' + adapterRunning + '; Latest Tweet Id ' + window.latestTweetId + '; Number of Tweets ' + remoteData.twitterMessages.length);
 
-		var context = {
-			tweets : remoteData.twitterMessages
-		};
-		var html = tweetTemplate(context);
-
-		if (latestTweetId > 0) {
-			$(html).hide().prependTo("#tweets").fadeIn("slow");
+		if (remoteData.twitterMessages.length > 0) {
+			var context = {
+				tweets : remoteData.twitterMessages
+			};
+			var html = tweetTemplate(context).trim();
+			$(html).prependTo("#tweets");
 			$('#tweets').spin(false);
 		}
 	}
-
 });
 
 $(document).ready(function() {
@@ -54,26 +51,17 @@ $(document).ready(function() {
 	var source = $("#tweet-template").html();
 	tweetTemplate = Handlebars.compile(source);
 
-	$(".delete").live('click', function(event) {
+	$("body").on('click',".delete",function(event) {
 		$(this).closest(".row").slideUp("normal", function() {
 			$(this).remove();
+
+			if ($("#tweets div.row").length === 0) {
+				$('#tweets').spin(true);
+			}
 		});
 	});
-
 });
 
-/*
-
-You can now create a spinner using any of the variants below:
-
-$("#el").spin(); // Produces default Spinner using the text color of #el.
-$("#el").spin("small"); // Produces a 'small' Spinner using the text color of #el.
-$("#el").spin("large", "white"); // Produces a 'large' Spinner in white (or any valid CSS color).
-$("#el").spin({ ... }); // Produces a Spinner using your custom settings.
-
-$("#el").spin(false); // Kills the spinner.
-
- */
 (function($) {
 
 	$.fn.spin = function(opts, color) {

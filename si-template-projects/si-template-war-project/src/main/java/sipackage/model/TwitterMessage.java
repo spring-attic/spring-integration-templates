@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package stsorg.stsspringframework.stsintegration.model;
+package sipackage.model;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -178,9 +178,6 @@ public class TwitterMessage implements Comparable<TwitterMessage>{
 
 	@Override
 	public String toString() {
-//		return "TwitterMessage [id=" + id + ", createdAt=" + createdAt
-//				+ ", text=" + text + ", fromUser=" + fromUser
-//				+ ", profileImageUrl=" + profileImageUrl + "]";
 		return "TwitterMessage [id=" + id + ", fromUser=" + fromUser + "]";
 	}
 
