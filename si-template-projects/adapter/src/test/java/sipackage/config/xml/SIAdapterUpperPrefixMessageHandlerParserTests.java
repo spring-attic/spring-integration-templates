@@ -38,7 +38,7 @@ public class SIAdapterUpperPrefixMessageHandlerParserTests {
 	private EventDrivenConsumer consumer;
 
 	@Test
-	public void testJpaMessageHandlerParser() throws Exception {
+	public void testMessageHandlerParser() throws Exception {
 		setUp("SIAdapterUpperPrefixMessageHandlerParserTests.xml", getClass());
 
 
@@ -57,7 +57,7 @@ public class SIAdapterUpperPrefixMessageHandlerParserTests {
 	}
 
 	@Test
-	public void testJpaExecutorBeanIdNaming() throws Exception {
+	public void testExecutorBeanIdNaming() throws Exception {
 
 		this.context = new ClassPathXmlApplicationContext("SIAdapterUpperPrefixMessageHandlerParserTests.xml", getClass());
 		assertNotNull(context.getBean("siAdapterLowerPrefixOutboundChannelAdapter.siAdapterLowerPrefixExecutor", SIAdapterUpperPrefixExecutor.class));

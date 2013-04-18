@@ -11,7 +11,7 @@
 	<int:channel id="out"/>
 
 	<int-siAdapterLowerPrefix:inbound-channel-adapter id="siAdapterLowerPrefixInboundChannelAdapter"
-		auto-startup="false"
+		auto-startup="true"
 		example-property="I am a sample property"
 		channel="out">
 		<int:poller fixed-rate="5000"/>
