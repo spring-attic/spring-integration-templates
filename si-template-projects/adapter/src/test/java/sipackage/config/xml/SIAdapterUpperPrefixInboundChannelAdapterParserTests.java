@@ -13,7 +13,9 @@
 package sipackage.config.xml;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Test;
@@ -37,7 +39,7 @@ public class SIAdapterUpperPrefixInboundChannelAdapterParserTests {
 	private SourcePollingChannelAdapter consumer;
 
 	@Test
-	public void testJpaInboundChannelAdapterParser() throws Exception {
+	public void testInboundChannelAdapterParser() throws Exception {
 
 		setUp("SIAdapterUpperPrefixInboundChannelAdapterParserTests.xml", getClass(), "siAdapterLowerPrefixInboundChannelAdapter");
 
@@ -56,7 +58,23 @@ public class SIAdapterUpperPrefixInboundChannelAdapterParserTests {
 	}
 
 	@Test
-	public void testJpaExecutorBeanIdNaming() throws Exception {
+	public void testLifeCycleAttributes() throws Exception {
+
+		setUp("SIAdapterUpperPrefixInboundChannelAdapterParserTests.xml", getClass(), "siAdapterLowerPrefixInboundChannelAdapter");
+
+		assertFalse(this.consumer.isAutoStartup());
+		assertEquals(Integer.valueOf(Integer.MAX_VALUE), Integer.valueOf(this.consumer.getPhase()));
+
+	}
+
+	@Test
+	public void testLifeCycleAttributesStarted() throws Exception {
+		setUp("SIAdapterUpperPrefixInboundChannelAdapterParserTestsStopped.xml", getClass(), "siAdapterLowerPrefixInboundChannelAdapter");
+		assertTrue(this.consumer.isAutoStartup());
+	}
+
+	@Test
+	public void testExecutorBeanIdNaming() throws Exception {
 
 		this.context = new ClassPathXmlApplicationContext("SIAdapterUpperPrefixInboundChannelAdapterParserTests.xml", getClass());
 		assertNotNull(context.getBean("siAdapterLowerPrefixInboundChannelAdapter.siAdapterLowerPrefixExecutor", SIAdapterUpperPrefixExecutor.class));
