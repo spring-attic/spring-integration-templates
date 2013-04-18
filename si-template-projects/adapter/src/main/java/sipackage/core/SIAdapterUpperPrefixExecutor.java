@@ -86,6 +86,10 @@ public class SIAdapterUpperPrefixExecutor implements InitializingBean {
 			logger.warn("Logic not implemented, yet.");
 		}
 
+		if (requestMessage == null) {
+			return null;
+		}
+
 		return MessageBuilder.fromMessage(requestMessage).build();
 	}
 
