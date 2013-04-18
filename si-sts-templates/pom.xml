@@ -29,10 +29,10 @@
 		<template.version>${project.version}</template.version>
 		<template.category>Integration</template.category>
 
-		<template.standalone.size>15087</template.standalone.size>
-		<template.standalone-simple.size>12656</template.standalone-simple.size>
-		<template.war.size>64708</template.war.size>
-		<template.adapter.size>118119</template.adapter.size>
+		<template.standalone.size>12100</template.standalone.size>
+		<template.standalone-simple.size>9500</template.standalone-simple.size>
+		<template.war.size>155900</template.war.size>
+		<template.adapter.size>122100</template.adapter.size>
 
 	</properties>
 

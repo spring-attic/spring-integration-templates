@@ -1,27 +1,13 @@
 Spring Integration SIAdapterUpperPrefix Adapter
 =================================================
 
-Welcome to the *Spring Integration Adapter Template*. This template is meant as a starting point for new Spring Integration Adapters.This template provides the following components:
+Welcome to the *Spring Integration Adapter Template*. This template is meant as a starting point for new *Spring Integration* Adapters. This template provides the following components:
 
 * Outbound Channel Adapter
 * Outbound Gateway
 * Inbound Channel Adapter
 
-However, this template may also be useful in order to create other Spring Integration extensions containing for example *Transformers*, Marshallers etc.
-
-# STS issues to be aware of
-
-* [STS-2866](https://issuetracker.springsource.com/browse/STS-2866)
-
-As of the current stable version of STS 3.0.0, it is currently impossible to replace version numbers in file names. Therefore, the versions of the XML schemas are hard-coded to a value of *1.0*. If you have defined a different version through the STS template wizard, please change the schema versions accordingly. You will need to rename:
-
-	src/main/resources/your_package/config/xml/spring-integration-1.0.xsd
-
-You will also need to change the version numbers in file:
-
-	src/main/resources/META-INF/spring.schemas
-
-This issue will be addressed for STS 3.1.0.
+However, this template may also be useful in order to create other Spring Integration extensions containing for example *Transformers*, *Marshallers* etc.
 
 # FAQ
 
@@ -31,7 +17,7 @@ This section provides some additional information, that may help you to create b
 
 ### Base package
 
-In many instances, the base package may not contain any classes at all. However, if you define custom Spring Integration message headers or provide module specific exceptions types, this package will be a good choice to store those types of classes.
+In many instances, the base package may not contain any classes at all. However, if you define custom *Spring Integration* message headers or provide module specific exceptions types, this package will be a good choice to store those types of classes.
 
 ### config.xml
 
@@ -47,7 +33,7 @@ Used for common configuration classes.
 
 ### core
 
-Contains the core component logic that is typically shared across the various components you define. 
+Contains the core component logic that is typically shared across the various components you define.
 
 ### inbound
 
@@ -69,7 +55,7 @@ Use *FactoryBeans* that wrap your adapter. See the *Spring Integration JPA Adapt
 
 We typically recommend 2 approaches:
 
-* DocBook 
+* DocBook
 * Markdown formatted README.md files
 
 ### DocBook
@@ -80,7 +66,7 @@ Traditionally, *Spring* projects have relied on DocBook to provide documentation
 
 ### Markdown formatted README.md files
 
-If you use *GitHub* for the hosting of your projects, you may also consider using its sophisticated Markdown support. GitHub will provide a nice rendering of your readme files right in the source code repository. 
+If you use *GitHub* for the hosting of your projects, you may also consider using its sophisticated Markdown support. GitHub will provide a nice rendering of your readme files right in the source code repository.
 
 ## Can I install the artifacts of my adapter to the local Maven cache?
 
@@ -92,9 +78,13 @@ Please also review the settings in **publish-maven.gradle**. Within that file yo
 
 # Building
 
-If you encounter out of memory errors during the build, increase available heap and permgen for Gradle:
+The template uses *Gradle* to compile and build the project. For convenience it uses the *Gradle* wrapper, which is provided as part of the template. If you are on a unix-based file system, please ensure that `gradlew` is executable. If not, please execute:
 
-    GRADLE_OPTS='-XX:MaxPermSize=1024m -Xmx1024m'
+	chmod +x gradlew
+
+If you encounter out of memory errors during the build, increase available the heap and permgen for *Gradle*:
+
+    export GRADLE_OPTS='-XX:MaxPermSize=1024m -Xmx1024m'
 
 To build and install jars into your local Maven cache:
 
