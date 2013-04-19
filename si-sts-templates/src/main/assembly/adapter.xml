@@ -17,6 +17,8 @@
 				<exclude>**/.DS_Store</exclude>
 				<exclude>**/.settings/**</exclude>
 				<exclude>**/.pmd</exclude>
+				<exclude>**/.gradle/**</exclude>
+				<exclude>**/gradlew</exclude>
 				<exclude>**/.idea/**</exclude>
 				<exclude>**/build/**</exclude>
 				<exclude>**/*.iml</exclude>
@@ -33,6 +35,11 @@
 		<file>
 			<source>${project.basedir}/../si-template-projects/adapter/.settings/org.eclipse.jdt.core.prefs</source>
 			<outputDirectory>.settings</outputDirectory>
+		</file>
+		<file>
+			<source>${project.basedir}/../si-template-projects/adapter/gradlew</source>
+			<outputDirectory></outputDirectory>
+			<fileMode>0755</fileMode>
 		</file>
 	</files>
 </assembly>
