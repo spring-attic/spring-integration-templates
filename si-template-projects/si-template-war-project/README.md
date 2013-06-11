@@ -9,6 +9,22 @@ Please keep in mind, that the provided Web UI is not necessary just to run *Spri
 
 # Running the Template
 
+*Twitter Search* requires authentication. Therefore, you must update the following properties in **oauth.properties** located at  `src/main/resources`:
+
+* twitter.oauth.consumerKey
+* twitter.oauth.consumerSecret
+* twitter.oauth.accessToken
+* twitter.oauth.accessTokenSecret
+
+Alternatively, you can also pass in those properties using system properties via the command-line, e.g.:
+
+	mvn jetty:run -Dtwitter.oauth.consumerKey=12345 \
+	-Dtwitter.oauth.consumerSecret=12345 \
+	-Dtwitter.oauth.accessToken=12345 \
+	-Dtwitter.oauth.accessTokenSecret=12345 \
+
+The keys can be setup at [http://dev.twitter.com/](http://dev.twitter.com/).
+
 ## Command Line using Tomcat 7
 
 	mvn tomcat7:run

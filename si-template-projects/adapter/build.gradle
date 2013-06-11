@@ -28,8 +28,8 @@ ext {
 	junitVersion = '4.11'
 	log4jVersion = '1.2.17'
 	mockitoVersion = '1.9.5'
-	springVersion = '3.2.2.RELEASE'
-	springIntegrationVersion = '2.2.3.RELEASE'
+	springVersion = '3.2.3.RELEASE'
+	springIntegrationVersion = '2.2.4.RELEASE'
 
 	idPrefix = 'siAdapterLowerPrefix'
 }
@@ -263,5 +263,5 @@ task dist(dependsOn: assemble) {
 
 task wrapper(type: Wrapper) {
 	description = 'Generates gradlew[.bat] scripts'
-	gradleVersion = '1.5'
+	gradleVersion = '1.6'
 }

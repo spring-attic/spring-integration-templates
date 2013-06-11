@@ -12,9 +12,21 @@
 
 	<context:component-scan base-package="sipackage" />
 
+	<context:property-placeholder location="classpath:oauth.properties"/>
+
+	<!-- As of Twitter API version 1.1, users must be authenticated to perform searches -->
+
+	<bean id="twitterTemplate"
+		class="org.springframework.social.twitter.api.impl.TwitterTemplate">
+		<constructor-arg value="${twitter.oauth.consumerKey}" />
+		<constructor-arg value="${twitter.oauth.consumerSecret}" />
+		<constructor-arg value="${twitter.oauth.accessToken}" />
+		<constructor-arg value="${twitter.oauth.accessTokenSecret}" />
+	</bean>
+
 	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#twitter -->
-	<int-twitter:search-inbound-channel-adapter id="twitter"
-		query="springsource OR springintegration OR cloudfoundry OR grails OR rabbitmq OR groovylang OR springframework"
+	<int-twitter:search-inbound-channel-adapter id="twitter" twitter-template="twitterTemplate"
+		query="springsource OR springintegration OR cloudfoundry OR #grails OR rabbitmq OR groovylang OR springframework"
 		channel="twitterChannel" auto-startup="false">
 		<int:poller fixed-rate="20000" max-messages-per-poll="3" />
 	</int-twitter:search-inbound-channel-adapter>

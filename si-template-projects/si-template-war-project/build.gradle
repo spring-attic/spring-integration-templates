@@ -15,13 +15,13 @@ ext {
 	sourceCompatibility=1.6
 	targetCompatibility=1.6
 
-	springIntegrationVersion = '2.2.3.RELEASE'
-	springframeworkVersion = '3.2.2.RELEASE'
+	springIntegrationVersion = '2.2.4.RELEASE'
+	springframeworkVersion = '3.2.3.RELEASE'
 	guavaVersion = '14.0.1'
 	jacksonVersion = '1.9.11'
 	junitVersion = '4.11'
 	log4jVersion = '1.2.17'
-	wro4jVersion = '1.6.3'
+	wro4jVersion = '1.7.0'
 
 }
 
