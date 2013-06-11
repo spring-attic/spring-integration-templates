@@ -16,10 +16,10 @@ In order to build the entire project run:
 This will result in *5 artifacts* being created under **target/out**:
 
 * descriptor.xml
-* si-template-adapter-1.0.0.M5.zip
-* si-template-standalone-1.0.0.M5.zip
-* si-template-standalone-simple-1.0.0.M5.zip
-* si-template-war-1.0.0.M5.zip
+* si-template-adapter-1.0.0.RELEASE.zip
+* si-template-standalone-1.0.0.RELEASE.zip
+* si-template-standalone-simple-1.0.0.RELEASE.zip
+* si-template-war-1.0.0.RELEASE.zip
 
 In order to deploy to STS for **development** you have **2 options**:
 
@@ -33,7 +33,7 @@ This approach is  **Best for Development**.
 
 ## Tell STS to use the descriptor.xml file (Best for hosting your )
 
-This approach is **Best for Deploying** your own temapltes.
+This approach is **Best for Deploying** your own templates.
 
 1. In STS - Go to **Preferences...** --> **Spring** --> **Template Projects**
 2. Press the **Add** Button

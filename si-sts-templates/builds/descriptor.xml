@@ -4,13 +4,13 @@
 		id="org.springframework.integration.sts.template.standalone.simple"
 		name="Spring Integration Project (Standalone) - Simple"
 		kind="template"
-		version="1.0.0.M5"
+		version="1.0.0.RELEASE"
 		local="false"
 		requires="[3.0.0,4.0)"
 		requiresbundle="org.eclipse.m2e.core"
 		size="9500"
 		category="Integration"
-		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-standalone-simple-1.0.0.M5.zip">
+		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-standalone-simple-1.0.0.RELEASE.zip">
 		<description>Creates a Spring Integration project that runs as a
 				standalone Java application using core components only.</description>
 	</descriptor>
@@ -18,13 +18,13 @@
 		id="org.springframework.integration.sts.template.standalone"
 		name="Spring Integration Project (Standalone) - File"
 		kind="template"
-		version="1.0.0.M5"
+		version="1.0.0.RELEASE"
 		local="false"
 		requires="[3.0.0,4.0)"
 		requiresbundle="org.eclipse.m2e.core"
 		size="12100"
 		category="Integration"
-		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-standalone-1.0.0.M5.zip">
+		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-standalone-1.0.0.RELEASE.zip">
 		<description>Creates a Spring Integration project that runs as a
 			standalone Java application using file polling and file output.</description>
 	</descriptor>
@@ -32,13 +32,13 @@
 		id="org.springframework.integration.sts.template.war"
 		name="Spring Integration Project (War)"
 		kind="template"
-		version="1.0.0.M5"
+		version="1.0.0.RELEASE"
 		local="false"
 		requires="[3.0.0,4.0)"
 		requiresbundle="org.eclipse.m2e.core"
 		size="155900"
 		category="Integration"
-		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-war-1.0.0.M5.zip">
+		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-war-1.0.0.RELEASE.zip">
 		<description>Creates a Spring Integration project that runs within a
 			servlet container. Uses the Spring Integration Twitter adapter.</description>
 	</descriptor>
@@ -47,13 +47,13 @@
 		id="org.springframework.integration.sts.template.adapter"
 		name="Spring Integration Adapter Template Project"
 		kind="template"
-		version="1.0.0.M5"
+		version="1.0.0.RELEASE"
 		local="false"
 		requires="[3.2.0,4.0)"
 		requiresbundle="org.springsource.ide.eclipse.gradle.core"
 		size="122100"
 		category="Integration"
-		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-adapter-1.0.0.M5.zip">
+		url="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/si-template-adapter-1.0.0.RELEASE.zip">
 		<description>Creates a Spring Integration Adapter Template. Requires Gradle Support.</description>
 	</descriptor>
 	<descriptor
