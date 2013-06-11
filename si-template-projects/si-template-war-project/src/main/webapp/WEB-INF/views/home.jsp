@@ -18,10 +18,10 @@
 
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="<c:url value='/assets/ico/favicon.ico'/>">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72"   href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed"                 href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72"   href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed"                 href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/ico/apple-touch-icon-57-precomposed.png">
 	</head>
 
 	<body>
@@ -103,7 +103,7 @@
 			<div class="navbar-inner">
 				<div class="container">
 					<a class="brand" href="http://www.springsource.org/"><img alt="SpringSource"
-							title="SpringSource" src="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/img/spring/SpringSource-logo.png"></a>
+							title="SpringSource" src="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/img/spring/spring-logo.png"></a>
 				</div>
 			</div>
 		</div>
