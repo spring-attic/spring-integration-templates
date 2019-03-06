@@ -6,7 +6,7 @@ apply from: 'publish-maven.gradle'
 
 repositories {
 	mavenCentral()
-	maven { url 'http://repo.springsource.org/libs-milestone' }
+	maven { url 'https://repo.springsource.org/libs-milestone' }
 }
 
 group   = "SI-TEMPLATE-GROUP-ID"

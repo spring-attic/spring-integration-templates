@@ -5,7 +5,7 @@ apply plugin: 'idea'
 
 repositories {
 	mavenCentral()
-	maven { url 'http://repo.springsource.org/libs-milestone' }
+	maven { url 'https://repo.springsource.org/libs-milestone' }
 }
 
 group   = "mavenGroupId"

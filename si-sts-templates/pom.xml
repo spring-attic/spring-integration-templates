@@ -15,8 +15,7 @@
 		<developer>
 			<id>ghillert</id>
 			<name>Gunnar Hillert</name>
-			<email>ghillert at vmware dot com</email>
-			<url>http://blog.hillert.com</url>
+			<email>ghillert at pivotal dot io</email>
 			<roles>
 				<role>Admin</role>
 			</roles>
