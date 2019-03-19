@@ -23,7 +23,7 @@ Alternatively, you can also pass in those properties using system properties via
 	-Dtwitter.oauth.accessToken=12345 \
 	-Dtwitter.oauth.accessTokenSecret=12345 \
 
-The keys can be setup at [http://dev.twitter.com/](http://dev.twitter.com/).
+The keys can be setup at [https://dev.twitter.com/](https://dev.twitter.com/).
 
 ## Command Line using Tomcat 7
 
@@ -45,10 +45,10 @@ Due to [an issue](https://issuetracker.springsource.com/browse/STS-3301) in the 
 
 For help please take a look at the [Spring Integration documentation][]. The Template projects are hosted at: https://github.com/SpringSource/spring-integration-templates
 
-[Apache Tomcat]: http://tomcat.apache.org/
-[Jetty]: http://www.eclipse.org/jetty/
-[Spring Tool Suite]: http://www.springsource.org/sts
-[Spring Integration]: http://www.springintegration.org/
-[Spring Integration documentation]: http://static.springsource.org/spring-integration/reference/html/
-[Twitter Adapters]: http://static.springsource.org/spring-integration/reference/html/twitter.html
+[Apache Tomcat]: https://tomcat.apache.org/
+[Jetty]: https://www.eclipse.org/jetty/
+[Spring Tool Suite]: https://www.springsource.org/sts
+[Spring Integration]: https://www.springintegration.org/
+[Spring Integration documentation]: https://static.springsource.org/spring-integration/reference/html/
+[Twitter Adapters]: https://github.com/spring-projects/spring-integration-extensions/tree/master/spring-integration-social-twitter#twitter-inbound-adapters
 

@@ -11,11 +11,6 @@
 		<!-- Le styles -->
 		<link href="<c:url value='/wro/g1.css'/>" rel="stylesheet">
 
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="<c:url value='/assets/ico/favicon.ico'/>">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/ico/apple-touch-icon-144-precomposed.png">
@@ -47,7 +42,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="https://github.com/SpringSource/spring-integration"><i class="icon-home"></i> Spring Integration</a></li>
 									<li><a href="https://github.com/SpringSource/spring-integration-samples"><i class="icon-share"></i> Samples</a></li>
-									<li><a href="http://forum.springsource.org/forumdisplay.php?42-Integration"><i class="icon-share"></i> Forums</a></li>
+									<li><a href="https://forum.springsource.org/forumdisplay.php?42-Integration"><i class="icon-share"></i> Forums</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -102,7 +97,7 @@
 		<div class="navbar navbar-fixed-bottom">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="http://www.springsource.org/"><img alt="SpringSource"
+					<a class="brand" href="https://www.springsource.org/"><img alt="SpringSource"
 							title="SpringSource" src="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.RELEASE/img/spring/spring-logo.png"></a>
 				</div>
 			</div>
@@ -122,8 +117,8 @@
 				<h4>About Spring Integration</h4>
 				<p>
 					To learn more about Spring Integration, please visit:
-					<a href="http://www.springsource.org/spring-integration/">
-						http://www.springsource.org/spring-integration/
+					<a href="https://www.springsource.org/spring-integration/">
+						https://www.springsource.org/spring-integration/
 					</a>
 				</p>
 				<hr>

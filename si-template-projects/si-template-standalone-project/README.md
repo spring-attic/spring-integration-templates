@@ -19,5 +19,5 @@ You can run the application by either
 
 For help please take a look at the Spring Integration documentation:
 
-http://www.springsource.org/spring-integration
+https://spring.io/projects/spring-integration
 
