@@ -11,11 +11,6 @@
 		<!-- Le styles -->
 		<link href="<c:url value='/wro/g1.css'/>" rel="stylesheet">
 
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="<c:url value='/assets/ico/favicon.ico'/>">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value='/assets/ico/apple-touch-icon-144-precomposed.png'/>">

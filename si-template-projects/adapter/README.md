@@ -147,12 +147,12 @@ on [Stack Overflow][]. [Commercial support][] is available, too.
 For more information, please also don't forget to visit the [Spring Integration][] website.
 
 [Spring Integration]: https://github.com/SpringSource/spring-integration
-[Commercial support]: http://springsource.com/support/springsupport
-[Spring Integration forums]: http://forum.springsource.org/forumdisplay.php?42-Integration
-[spring-integration tag]: http://stackoverflow.com/questions/tagged/spring-integration
+[Commercial support]: https://pivotal.io/contact/spring-support
+[Spring Integration forums]: https://forum.springsource.org/forumdisplay.php?42-Integration
+[spring-integration tag]: https://stackoverflow.com/questions/tagged/spring-integration
 [Spring Integration Samples]: https://github.com/SpringSource/spring-integration-samples
 [Spring Integration Templates]: https://github.com/SpringSource/spring-integration-templates/tree/master/si-sts-templates
 [Spring Integration Dsl Groovy]: https://github.com/SpringSource/spring-integration-dsl-groovy
 [Spring Integration Dsl Scala]: https://github.com/SpringSource/spring-integration-dsl-scala
 [Spring Integration Pattern Catalog]: https://github.com/SpringSource/spring-integration-pattern-catalog
-[Stack Overflow]: http://stackoverflow.com/faq
+[Stack Overflow]: https://stackoverflow.com/faq
