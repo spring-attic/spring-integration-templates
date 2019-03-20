@@ -3,33 +3,33 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
 	xmlns:int-file="http://www.springframework.org/schema/integration/file"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans.xsd
+						https://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/integration
-						http://www.springframework.org/schema/integration/spring-integration.xsd
+						https://www.springframework.org/schema/integration/spring-integration.xsd
 						http://www.springframework.org/schema/integration/file
-						http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
+						https://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
 
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#channel-adapter
-		http://www.eaipatterns.com/ChannelAdapter.html -->
+	<!-- See also: https://docs.spring.io/spring-integration/reference/htmlsingle/#channel-adapter
+		https://www.enterpriseintegrationpatterns.com/ChannelAdapter.html -->
 	<int-file:inbound-channel-adapter id="filesIn" directory="file:input">
 		<int:poller id="poller" fixed-rate="5000" max-messages-per-poll="10" />
 	</int-file:inbound-channel-adapter>
 
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#transformer
-		http://www.eaipatterns.com/MessageTranslator.html -->
+	<!-- See also: https://docs.spring.io/spring-integration/reference/htmlsingle/#transformer
+		https://www.enterpriseintegrationpatterns.com/MessageTranslator.html -->
 	<int:transformer id="copyFiles" input-channel="filesIn"
 		output-channel="routingChannel" ref="transformationHandler" method="handleFile" />
 
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#channel
-		http://www.eaipatterns.com/MessageChannel.html -->
+	<!-- See also: https://docs.spring.io/spring-integration/reference/htmlsingle/#channel
+		https://www.enterpriseintegrationpatterns.com/MessageChannel.html -->
 	<int:channel id="routingChannel">
 		<int:interceptors>
 			<int:wire-tap channel="loggingChannel" />
 		</int:interceptors>
 	</int:channel>
 
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#router
-		http://www.eaipatterns.com/MessageRouter.html -->
+	<!-- See also: https://docs.spring.io/spring-integration/reference/htmlsingle/#router
+		https://www.enterpriseintegrationpatterns.com/MessageRouter.html -->
 	<int:header-value-router id="fileTypeRouter"
 		header-name="file_extension" input-channel="routingChannel"
 		resolution-required="false" default-output-channel="otherFilesOut">
@@ -37,8 +37,8 @@
 		<int:mapping value="xml" channel="xmlFilesOut" />
 	</int:header-value-router>
 
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#channel-adapter
-		http://www.eaipatterns.com/ChannelAdapter.html -->
+	<!-- See also: https://docs.spring.io/spring-integration/reference/htmlsingle/#channel-adapter
+		https://www.enterpriseintegrationpatterns.com/ChannelAdapter.html -->
 	<int-file:outbound-channel-adapter
 		id="otherFilesOut" directory="file:target/output/other"
 		delete-source-files="true" />
