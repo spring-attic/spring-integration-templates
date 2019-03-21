@@ -1,7 +1,7 @@
 Spring Integration Gradle Plugin
 ================================
 
-The Spring Integration [Gradle](http://www.gradle.org) Plugin provides templates to jumpstart [Spring Integration](http://www.springintegration.org) projects. The following templates are available:
+The Spring Integration [Gradle](https://www.gradle.org) Plugin provides templates to jumpstart [Spring Integration](https://www.springsource.org/spring-integration/) projects. The following templates are available:
 
 * **Standalone Simple** - Creates a very basic Spring Integration project (command line based)
 * **Standalone** - Creates a command lined based project that uses file pollers
