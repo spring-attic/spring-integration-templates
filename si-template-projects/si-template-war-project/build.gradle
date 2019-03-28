@@ -4,7 +4,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 repositories {
-	mavenCentral()
+	maven { url 'https://repo.maven.apache.org/maven2/' }
 	maven { url 'https://repo.springsource.org/libs-milestone' }
 }
 
