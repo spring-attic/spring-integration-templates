@@ -1,3 +1,5 @@
+# spring-integration-templates is no longer actively maintained by VMware, Inc.
+
 Spring Integration Templates
 ============================
 
